@@ -27,9 +27,9 @@ Install programming tools: [💾](../docs/programming-toolkit.md)
 ## Practice
 
 
-💻 **Demo application exercise to get started with Github**: 
+💻 Demo application exercise to get started with Github: 
 
-Go to the [course GitHub organization](https://github.com/orgs/om2-ws22/repositories) and locate the repo titled:
+Go to the [course GitHub organization](https://github.com/orgs/ds-ws22/repositories) and locate the repo titled:
 
 `git-github-fundamentals-YOUR_GITHUB_USERNAME` 
 
