@@ -4,10 +4,10 @@
 
 ## Course info
 
-|           | Day       | Time              | Location                       |
-|-----------|-----------|-------------------|--------------------------------|
-| Lecture   | x         | x pm - x pm |  X  |
-| Lab       | x         | x pm - x pm |  X  |
+
+|           | Day       | Time              | Location |
+|-----------|-----------|-------------------|----------|
+| Lecture   | Monday    | 10:00 am - 11:30 am |  S205  |
 
 
 ```{image} ../_static/img/room.png
