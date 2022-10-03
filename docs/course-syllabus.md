@@ -88,7 +88,6 @@ Assessment for the course is comprised of four components:
 - [application exercises](application-exercises)
 - [homework assignments](hw) 
 - [exams](exams)
-- [project](project)
 
 (application-exercises)=
 ### Application exercises
@@ -128,12 +127,7 @@ The exams will focus on the conceptual understanding of the content
 
 More details about the exams will be given during the semester.
 
-(project)=
-### Project
 
-The purpose of the [project](project-description.md) is to apply what you've learned throughout the semester to analyze an interesting, data-driven research question. The project will be completed in **teams**.
-
-More information about the project will be provided during the semester.
 
 ## Grading
 
@@ -141,12 +135,10 @@ The final course grade will be calculated as follows:
 
 | Category              | Percentage      |
 |-----------------------|-----------------|
-| Application exercises | 10%              |
-| Homework              | 25% (5 x 5%)    |
-| Project               | 35%             |
-| Exam 01               | 10%             |
-| Exam 02               | 10%             |
-| Exam 03               | 10%             |
+| Application exercises | 20%             |
+| Homework              | 30%             |
+| Exam 01               | 25%             |
+| Exam 02               | 25%             |
 
 The final grade will be determined based on the following thresholds:
 
@@ -220,6 +212,5 @@ The due dates for assignments are there to help you keep up with the course mate
 
 -   There is no late work policy for *exams* (they need to be completed in a specific timeframe)
 
--   Projects may be submitted up to 2 days late. There will be a 25% deduction for each 24-hour period the project is late.
 
 If there are important circumstances that prevent you from completing a lab or homework assignment by the stated due date, you may email me at [kirenz@hdm-stuttgart.de](mailto:kirenz@hdm-stuttgart.de) before the deadline.
