@@ -16,12 +16,11 @@
 (participate)=
 ## Participate
 
-Download slides:
 
-📑 [Download slides]()
+Download slides: [📑](https://drive.google.com/file/d/1-8T5QvckmSMD8qVMgtzQsZxOUoswsOgk/view?usp=sharing)
 
 
-💾 [Install programming tools](../docs/programming-toolkit.md)
+Install programming tools: [💾](../docs/programming-toolkit.md)
 
 
 ---
@@ -29,7 +28,7 @@ Download slides:
 (practice)=
 ## Practice
 
-💻 [AE 1](/ae/)
+💻 [AE 0](/ae/)
 
 
 ---
@@ -37,14 +36,7 @@ Download slides:
 (perform)=
 ## Perform
 
-There are no assignments this week
-
-
-🖥 Homework
-
-💯 Exam 
-
-📘 Project
+None
 
 
 ---
