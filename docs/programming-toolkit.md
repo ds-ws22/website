@@ -49,13 +49,14 @@ Let's update Anaconda:
 conda update --all
 ```
 
-Now you can install the modules we need for our course in a new environment (we call this new environment `mr`). 
+Now you can install the modules we need for our course in a new environment (we call this new environment `ds`). 
 
 Copy this code and run it in your terminal (command prompt): 
 
 ```bash
-conda create -n mr python=3.9 pandas openpyxl jupyter scikit-learn altair vega_datasets matplotlib seaborn
+conda create -n ds python=3.9 pandas openpyxl jupyter jupyter_contrib_nbextensions rise scikit-learn altair vega_datasets matplotlib seaborn requests tweepy tensorflow beautifulsoup4 streamlit sqlalchemy psycopg2
 ```
+
 
 When conda asks you: 
 
@@ -66,7 +67,7 @@ simply type `y` and press enter.
 Now activate the new environment:
 
 ```bash
-conda activate mr
+conda activate ds
 ```
 
 ---
