@@ -5,9 +5,9 @@
 ## Course info
 
 
-|           | Day       | Time              | Location |
-|-----------|-----------|-------------------|----------|
-| Lecture   | Monday    | 10:00 am - 11:30 am |  S205  |
+|           | Day       | Time                | Location |
+|-----------|-----------|-------------------  |----------|
+| Lecture   | Monday    | 11:45 am - 13:15 am |  S205  |
 
 
 ```{image} ../_static/img/room.png
@@ -19,13 +19,24 @@
 
 ## Learning objectives
 
+Deep Learning with Python introduces the field of deep learning using the Python language and the powerful Keras library. 
+
 By the end of the semester, you will be able to...
 
--   analyze real-world data to answer questions about multivariable relationships.
--   fit and evaluate linear and logistic regression models.
--   assess whether a proposed model is appropriate and describe its limitations.
--   use Python to write reproducible reports and GitHub for version control and collaboration.
--   communicate results from statistical analyses to a general audience.
+- perform data cleaning and transformations using *Pandas* and *Scikit-learn*
+
+- do explanatory data analysis with *Altair* and create dashboards with *Streamlit*
+
+- collect data with web scraping and web APIs.
+
+- perform text mining to gain insights from text data.
+
+- use machine learning models like random forests and gradient boosted decision trees to make predictions.
+
+- apply deep learning models to natural language processing and image classification problems.
+
+- use the Terminal, version control in Git, and GitHub. 
+
 
 
 ## Where to get help
@@ -40,7 +51,13 @@ Check out the [Support](course-support.md) page for more resources.
 
 While there is no official textbook for the course, we will be assigning readings from the following textbooks.
 
-- [Introduction to Modern Statistics](https://openintro-ims.netlify.app/) by Mine Çetinkaya-Rundel and Johanna Hardin
+*Available as E-Books in the [HdM library](https://www.hdm-stuttgart.de/bibliothek/angebot/eBooks):*
+
+- Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow, by Aurélien Géron.
+
+- Deep Learning with Python by François Chollet
+
+*Available as free online books:*
 
 - [Python for Data Analysis, 3E](https://wesmckinney.com/book/) by Wes McKinney
 
