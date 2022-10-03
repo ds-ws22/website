@@ -43,6 +43,4 @@ Homeworks (HW) and important assignment dates (exams and projects)
 
 💯 Exam 
 
-📘 Project
-
 ---
