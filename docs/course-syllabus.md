@@ -7,7 +7,7 @@
 
 |           | Day       | Time                | Location |
 |-----------|-----------|-------------------  |----------|
-| Lecture   | Monday    | 11:45 am - 13:15 am |  S205  |
+| Lecture   | Monday    | 11:45 am - 13:15 pm |  S205  |
 
 
 ```{image} ../_static/img/room.png
@@ -18,8 +18,6 @@
 ```
 
 ## Learning objectives
-
-Deep Learning with Python introduces the field of deep learning using the Python language and the powerful Keras library. 
 
 By the end of the semester, you will be able to...
 
@@ -33,9 +31,9 @@ By the end of the semester, you will be able to...
 
 - use machine learning models like random forests and gradient boosted decision trees to make predictions.
 
-- apply deep learning models to natural language processing and image classification problems.
+- apply deep learning models to natural language and image classification problems.
 
-- use the Terminal, version control in Git, and GitHub. 
+- use version control in Git and GitHub. 
 
 
 
@@ -49,7 +47,7 @@ Check out the [Support](course-support.md) page for more resources.
 
 ## Textbooks
 
-While there is no official textbook for the course, we will be assigning readings from the following textbooks.
+While there is no official textbook for the course, we will be assigning readings from the following textbooks:
 
 *Available as E-Books in the [HdM library](https://www.hdm-stuttgart.de/bibliothek/angebot/eBooks):*
 
@@ -71,15 +69,6 @@ Additionally, some lectures will feature application exercises that will be grad
 
 You are expected to bring a laptop to each class so that you can take part in the in-class exercises.
 
-
-## Teams
-
-You will be assigned to a team at the beginning of the semester.
-
-All team members are expected to contribute equally to the completion of the labs and project and you will be asked to evaluate your team members throughout the semester.
-Failure to adequately contribute to an assignment will result in a penalty to your mark relative to the team's overall mark.
-
-You are expected to make use of the provided GitHub repository as the central collaborative platform. [Commits](https://github.com/git-guides/git-commit) to this repository will be used as a metric (one of several) of each team member's relative contribution for each project.
 
 ## Assessment
 
