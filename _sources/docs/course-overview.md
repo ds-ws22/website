@@ -15,7 +15,7 @@ For a more detailed semester overview, take a look at the [course-schedule](../d
 |	Week	|	Date	|	Content	|	Slides	|	Materials	|	
 |	---	|	---	|	---	|	---	|	---	|	
 |	1	|	10.10.	|	Introduction	|	[📑](https://drive.google.com/file/d/1-8T5QvckmSMD8qVMgtzQsZxOUoswsOgk/view?usp=sharing)	|	[📁](../weeks/week1.md)	|	
-|	2	|	17.10.	|	Data basics	|	[📑](https://drive.google.com/file/d/1-9gUUeSdBlKKgTruCJtUU3zTFh4Mzj-r/view?usp=sharing)	|	[📁](../weeks/week2.md)	|	
+|	2	|	17.10.	|	Data basics	|		|		|	
 |	3	|	24.10.	|	Data extraction	|		|		|	
 |	4	|	31.10.	|	Text Mining	|		|		|	
 |	5	|	07.11.	|	Data exploration	|		|		|	
