@@ -18,7 +18,7 @@ For a more detailed semester overview, take a look at the [course-schedule](../d
 |	2	|	17.10.	|	Data basics	|		|		|	
 |	3	|	24.10.	|	Data extraction	|		|		|	
 |	4	|	31.10.	|	Text Mining	|		|		|	
-|	5	|	07.11.	|	Data exploration	|		|		|	
+|	5	|	07.11.	|	Regression	|		|		|	
 |	6	|	14.11.	|	Machine learning project	|		|		|	
 |	7	|	21.11.	|	Classification	|		|		|	
 |	8	|	28.11.	|	Random Forest	|		|		|	
