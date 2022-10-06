@@ -4,7 +4,7 @@ This section contains an overview about the programming toolkit you will need fo
 
 You will need to:
 
-1. Install [Anaconda](anaconda) (includes Python and some toolkits)
+1. Uninstall your old version of Anaconda and install the latest version of [Anaconda](anaconda) (includes Python and some toolkits)
 2. Install [Visual Studio Code](vscode) (a code editor)
 3. Create an acount at [GitHub](github) (for software development and version control)
 
@@ -23,9 +23,43 @@ Anaconda is a data science toolkit which already includes most of the data scien
 :::
 
 
+### Uninstall your old version
+
+To avoid compatibility problems with old versions of Anaconda, I recommend to uninstall Anaconda and install the latest version.
+
+#### Windows
+
+1. Open the file explorer.
+1. Delete your environment (anaconda3\envs) and package (anaconda3\pkgs) folders in your user folder.
+1. Open Add or remove programs and uninstall your Anaconda installation.
+
+#### macOS
+
+1. [Open your terminal](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) 
+1. Remove your entire Anaconda directory with `rm -rf`. Depending on your installation, your anaconda3 directory will be in your root folder or in your opt folder. If you are not sure where anaconda is installed, simply enter all commands. Note that there will be no information printed in the terminal - it will just silently uninstall Anaconda. 
+
+First try the opt folder:
+
+```bash
+rm -rf ~/opt/anaconda3
+```
+Then this location:
+
+```bash
+rm -rf anaconda3
+```
+
+Finally, enter:
+
+```bash
+rm -rf ~/anaconda3
+```
+
+Close the terminal and proceed with the next step.
+
 ### Installation
 
-You can skip the installation step if you already have Anaconda on your machine. If not, install the latest version of the Anaconda Individual Edition:
+Install the latest version of the Anaconda Individual Edition:
 
 ```{admonition} To do
 :class: tip
@@ -34,13 +68,13 @@ You can skip the installation step if you already have Anaconda on your machine.
 
 ```
 
-Follow the steps described in the next section.
+<!--
 
 ### Update Anaconda 
 
 - On *Windows* open the Start menu and open the "Anaconda Command Prompt". 
 
-- On *macOS*: [Open your terminal](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) 
+- On *macOS*: [Open a terminal](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) 
 
 
 Let's first update to the latest version of Anaconda (note that this may take a while):
@@ -57,9 +91,15 @@ Update Anaconda to the latest version
 conda update anaconda
 ```
 
+-->
+
 ### Use conda-forge
 
-Instead of the conda defaults channel, we want to use the community-led alternative `conda-forge` to install Python modules. 
+Instead of the conda default package manager, we want to use the community-led alternative `conda-forge` to install Python modules. 
+
+- On *Windows* open the Start menu and open the "Anaconda Command Prompt". 
+
+- On *macOS*: [Open a terminal](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) 
 
 Type this in your terminal to add `conda-forge`:
 
@@ -73,14 +113,15 @@ Then make `conda-forge` the priority channel:
 conda config --set channel_priority strict
 ```
 
-### Anaconda environment
 
-Now you can install the modules we need for our course in a new environment (we call this new environment `ds`). 
+### Create a new environment
+
+Now you can install some modules in a new Anaconda environment. The first environment will mainly be used for webscraping, therefore we call this new environment `webscraping`. 
 
 Copy this code and run it in your terminal (command prompt): 
 
 ```bash
-conda create -n ds python=3.9 pandas openpyxl jupyter jupyter_contrib_nbextensions rise scikit-learn altair vega_datasets matplotlib seaborn requests tweepy tensorflow beautifulsoup4 streamlit sqlalchemy psycopg2
+conda create -n webscraping python=3.9 requests pandas jupyter beautifulsoup4 altair matplotlib seaborn 
 ```
 
 
@@ -90,11 +131,19 @@ When conda asks you:
 
 simply type `y` and press enter.
 
-Now activate the new environment:
+
+(create-folder)=
+### Create a new folder for this course
+
+We also want to create a new folder called `data_science` for our course. 
+
+In your terminal, type:
 
 ```bash
-conda activate ds
+mkdir data_science
 ```
+
+You can now close the terminal.
 
 ---
 
@@ -136,7 +185,7 @@ Let's install some important extensions:
 - [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) 
 ```
 
-Now close and restart VS Code.
+Now **close and restart** VS Code.
 
 ### Jupyter Notebooks
 
@@ -149,7 +198,7 @@ We usually work with Jupyter Notebook files in VS Code. Open a Juptyer Notebook 
 
 ```
 
-
+If you can't select a kernel (like `base`or `webscraping`), try to close and restart VS Code.
 
 ### Optional tutorials
 
@@ -163,9 +212,6 @@ Here some resources to get familiar with VS Code:
 
 
 ## Troubleshooting
-
-If you run into problems with Anaconda (maybe you have an old version), you may uninstall Anaconda from your machine and install the latest version: follow this guide of how to [uninstall Anaconda](https://docs.anaconda.com/anaconda/install/uninstall/).
-
 
 If you have troubles to use Anaconda in Visual Studio Code, follow these instructions: 
 
@@ -200,96 +246,17 @@ You need a free GitHub-account for our course. Please follow the instructions be
 
 - [Create a free GitHub account with your HdM-email](https://github.com/join)
 - Verify your GitHub email
-- Install the [VS Code GitHub extension](https://code.visualstudio.com/docs/editor/github)
-- [Install GitHub desktop to synchronize your machine with GitHub](https://desktop.github.com/)
+- Go to Moodle and accept the invitation to the first [demo application exercise](https://e-learning.hdm-stuttgart.de/moodle/mod/forum/discuss.php?d=104582)
+- [Install GitHub Desktop to synchronize your machine with GitHub](https://desktop.github.com/)
 ```
 
----
+If you do not have any repositories associated with **GitHub Desktop**, you will see a "Let's get started!" view, where you can choose to create and clone a tutorial repository, clone an existing repository from the Internet, create a new repository, or add an existing repository from your hard drive.
 
+![](https://docs.github.com/assets/cb-67627/images/help/desktop/lets-get-started.png)
 
-## Fundamentals
+If you already accepted the invitation to the first application exercise, you can:
 
-### Python
-
-Python is an object-oriented language (an object is an entity that contains data along with associated metadata and/or functionality).
-
-One thing that distinguishes Python from many other programming languages is that it is interpreted rather than compiled. This means that it is executed line by line which is particular useful for data analysis, as well as the creation of interactive, executable documents like Jupyter Notebooks.
-
-:::{Note}
-Python is an interpreted language. The Python interpreter runs a program by executing one statement at a time.
-:::
-
-On top of this, there is a broad ecosystem of third-party tools and modules (like Jupyter Notebook) that offer more specialized data science functionality.
-
----
-
-### Jupyter Notebook
-
-[Jupyter Notebook](https://jupyter.org/) is an open-source application that allows you to create and share documents that contain code, equations, visualizations and narrative text. 
-
-<br>
-
-```{image} ../_static/img/jupyter.png
-:alt: jupyter
-:class: bg-primary mb-1
-:width: 300px
-:align: center
-```
-
-<br>
-
-A notebook is basically a list of cells and the cells contain either
-
-1. explanatory text (written in markdown)
-1. executable code
-1. code output
-
-Note that we will use Jupyter Notebook inside the coding editor Visual Studio Code or Google Colab.
-
-(colab)=
-### Colab
-
-Colaboratory, or “Colab” for short, is a free to use product from Google Research. Colab allows anybody to write and execute python code through the browser, and is especially well suited to perform data analysis and machine learning.
-
-:::{note}
-Colab is a free Jupyter notebook environment that requires no setup, and runs entirely on the Cloud.
-:::
-
-Watch this video to get a first impression of Colab:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/inN8seMm7UI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-Let`s start your first Colab notebook to get an overview about some basic features:
-
-```{admonition} Resources
-:class: tip
-- [Colab basic features overview](https://colab.research.google.com/notebooks/basic_features_overview.ipynb)
-```
-
----
-
-### Markdown
-
-Markdown is one of the world’s most popular markup languages used in data science. Jupyter Notebooks use Markdown to provide an unified authoring framework for data science, combining code, its results, and commentary in Markdown. 
-
-:::{note}
-Markdown is a simple way to format text that looks great on any device.
-:::
-
- Markdown files are designed to be used in three ways:
-
-1. For communicating to decision makers, who want to focus on the conclusions, not the code behind the analysis.
-
-2. For collaborating with other data scientists, who are interested in both your conclusions, and how you reached them (i.e. the code).
-
-3. As an environment in which to do data science, as a modern day lab notebook where you can capture not only what you did, but also what you were thinking.
-
-Review this site to learn more about Markdown:
-
-```{admonition} Resources
-:class: tip
-- [Interactive Colab Markdown guide](https://colab.research.google.com/notebooks/markdown_guide.ipynb)
-
-```
+- select this repo (it will be shown in the right box)
+- choose the folder `data_science` to install it to (we created this folder in [this step](create-folder)) 
 
 
