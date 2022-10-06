@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Python Syntax" href="programming-syntax.html" />
+    <link rel="next" title="Fundamentals" href="programming-fundamentals.html" />
     <link rel="prev" title="Course support" href="course-support.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -152,6 +152,11 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="programming-fundamentals.html">
+     Fundamentals
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="programming-syntax.html">
      Python Syntax
@@ -376,13 +381,25 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#installation">
-     Installation
+    <a class="reference internal nav-link" href="#uninstall-your-old-version">
+     Uninstall your old version
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#windows">
+       Windows
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#macos">
+       macOS
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#update-anaconda">
-     Update Anaconda
+    <a class="reference internal nav-link" href="#installation">
+     Installation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -391,8 +408,13 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#anaconda-environment">
-     Anaconda environment
+    <a class="reference internal nav-link" href="#create-a-new-environment">
+     Create a new environment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-new-folder-for-this-course">
+     Create a new folder for this course
     </a>
    </li>
   </ul>
@@ -433,33 +455,6 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#git-and-github">
    Git and GitHub
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fundamentals">
-   Fundamentals
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#python">
-     Python
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jupyter-notebook">
-     Jupyter Notebook
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#colab">
-     Colab
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#markdown">
-     Markdown
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -486,13 +481,25 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#installation">
-     Installation
+    <a class="reference internal nav-link" href="#uninstall-your-old-version">
+     Uninstall your old version
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#windows">
+       Windows
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#macos">
+       macOS
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#update-anaconda">
-     Update Anaconda
+    <a class="reference internal nav-link" href="#installation">
+     Installation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -501,8 +508,13 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#anaconda-environment">
-     Anaconda environment
+    <a class="reference internal nav-link" href="#create-a-new-environment">
+     Create a new environment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-new-folder-for-this-course">
+     Create a new folder for this course
     </a>
    </li>
   </ul>
@@ -544,33 +556,6 @@ title="Print to PDF"
    Git and GitHub
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fundamentals">
-   Fundamentals
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#python">
-     Python
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jupyter-notebook">
-     Jupyter Notebook
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#colab">
-     Colab
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#markdown">
-     Markdown
-    </a>
-   </li>
-  </ul>
- </li>
 </ul>
 
                         </nav>
@@ -586,7 +571,7 @@ title="Print to PDF"
 <p>This section contains an overview about the programming toolkit you will need for our course.</p>
 <p>You will need to:</p>
 <ol class="simple">
-<li><p>Install <a class="reference internal" href="#anaconda"><span class="std std-ref">Anaconda</span></a> (includes Python and some toolkits)</p></li>
+<li><p>Uninstall your old version of Anaconda and install the latest version of <a class="reference internal" href="#anaconda"><span class="std std-ref">Anaconda</span></a> (includes Python and some toolkits)</p></li>
 <li><p>Install <a class="reference internal" href="#vscode"><span class="std std-ref">Visual Studio Code</span></a> (a code editor)</p></li>
 <li><p>Create an acount at <a class="reference internal" href="#github"><span class="std std-ref">GitHub</span></a> (for software development and version control)</p></li>
 </ol>
@@ -599,36 +584,79 @@ title="Print to PDF"
 <p class="admonition-title">Note</p>
 <p>Anaconda is a data science toolkit which already includes most of the data science modules we need.</p>
 </div>
+<section id="uninstall-your-old-version">
+<h3>Uninstall your old version<a class="headerlink" href="#uninstall-your-old-version" title="Permalink to this headline">#</a></h3>
+<p>To avoid compatibility problems with old versions of Anaconda, I recommend to uninstall Anaconda and install the latest version.</p>
+<section id="windows">
+<h4>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">#</a></h4>
+<ol class="simple">
+<li><p>Open the file explorer.</p></li>
+<li><p>Delete your environment (anaconda3\envs) and package (anaconda3\pkgs) folders in your user folder.</p></li>
+<li><p>Open Add or remove programs and uninstall your Anaconda installation.</p></li>
+</ol>
+</section>
+<section id="macos">
+<h4>macOS<a class="headerlink" href="#macos" title="Permalink to this headline">#</a></h4>
+<ol class="simple">
+<li><p><a class="reference external" href="https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac">Open your terminal</a></p></li>
+<li><p>Remove your entire Anaconda directory with <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span></code>. Depending on your installation, your anaconda3 directory will be in your root folder or in your opt folder. If you are not sure where anaconda is installed, simply enter all commands. Note that there will be no information printed in the terminal - it will just silently uninstall Anaconda.</p></li>
+</ol>
+<p>First try the opt folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm -rf ~/opt/anaconda3
+</pre></div>
+</div>
+<p>Then this location:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm -rf anaconda3
+</pre></div>
+</div>
+<p>Finally, enter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm -rf ~/anaconda3
+</pre></div>
+</div>
+<p>Close the terminal and proceed with the next step.</p>
+</section>
+</section>
 <section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h3>
-<p>You can skip the installation step if you already have Anaconda on your machine. If not, install the latest version of the Anaconda Individual Edition:</p>
+<p>Install the latest version of the Anaconda Individual Edition:</p>
 <div class="tip admonition">
 <p class="admonition-title">To do</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda installation</a></p></li>
 </ul>
 </div>
-<p>Follow the steps described in the next section.</p>
-</section>
-<section id="update-anaconda">
-<h3>Update Anaconda<a class="headerlink" href="#update-anaconda" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>On <em>Windows</em> open the Start menu and open the “Anaconda Command Prompt”.</p></li>
-<li><p>On <em>macOS</em>: <a class="reference external" href="https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac">Open your terminal</a></p></li>
-</ul>
-<p>Let’s first update to the latest version of Anaconda (note that this may take a while):</p>
-<p>Update the conda package manager to the latest version:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda update conda
-</pre></div>
-</div>
-<p>Update Anaconda to the latest version</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda update anaconda
-</pre></div>
-</div>
+<!--
+
+### Update Anaconda 
+
+- On *Windows* open the Start menu and open the "Anaconda Command Prompt". 
+
+- On *macOS*: [Open a terminal](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) 
+
+
+Let's first update to the latest version of Anaconda (note that this may take a while):
+
+Update the conda package manager to the latest version:
+
+```bash
+conda update conda
+```
+
+Update Anaconda to the latest version
+
+```bash
+conda update anaconda
+```
+
+-->
 </section>
 <section id="use-conda-forge">
 <h3>Use conda-forge<a class="headerlink" href="#use-conda-forge" title="Permalink to this headline">#</a></h3>
-<p>Instead of the conda defaults channel, we want to use the community-led alternative <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> to install Python modules.</p>
+<p>Instead of the conda default package manager, we want to use the community-led alternative <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> to install Python modules.</p>
+<ul class="simple">
+<li><p>On <em>Windows</em> open the Start menu and open the “Anaconda Command Prompt”.</p></li>
+<li><p>On <em>macOS</em>: <a class="reference external" href="https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac">Open a terminal</a></p></li>
+</ul>
 <p>Type this in your terminal to add <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda config --add channels conda-forge
 </pre></div>
@@ -638,20 +666,25 @@ title="Print to PDF"
 </pre></div>
 </div>
 </section>
-<section id="anaconda-environment">
-<h3>Anaconda environment<a class="headerlink" href="#anaconda-environment" title="Permalink to this headline">#</a></h3>
-<p>Now you can install the modules we need for our course in a new environment (we call this new environment <code class="docutils literal notranslate"><span class="pre">ds</span></code>).</p>
+<section id="create-a-new-environment">
+<h3>Create a new environment<a class="headerlink" href="#create-a-new-environment" title="Permalink to this headline">#</a></h3>
+<p>Now you can install some modules in a new Anaconda environment. The first environment will mainly be used for webscraping, therefore we call this new environment <code class="docutils literal notranslate"><span class="pre">webscraping</span></code>.</p>
 <p>Copy this code and run it in your terminal (command prompt):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n ds <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9 pandas openpyxl jupyter jupyter_contrib_nbextensions rise scikit-learn altair vega_datasets matplotlib seaborn requests tweepy tensorflow beautifulsoup4 streamlit sqlalchemy psycopg2
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n webscraping <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9 requests pandas jupyter beautifulsoup4 altair matplotlib seaborn 
 </pre></div>
 </div>
 <p>When conda asks you:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Proceed</span> <span class="pre">([y]/n)?</span></code></p>
 <p>simply type <code class="docutils literal notranslate"><span class="pre">y</span></code> and press enter.</p>
-<p>Now activate the new environment:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda activate ds
+</section>
+<section id="create-a-new-folder-for-this-course">
+<span id="create-folder"></span><h3>Create a new folder for this course<a class="headerlink" href="#create-a-new-folder-for-this-course" title="Permalink to this headline">#</a></h3>
+<p>We also want to create a new folder called <code class="docutils literal notranslate"><span class="pre">data_science</span></code> for our course.</p>
+<p>In your terminal, type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir data_science
 </pre></div>
 </div>
+<p>You can now close the terminal.</p>
 <hr class="docutils" />
 </section>
 </section>
@@ -686,7 +719,7 @@ title="Print to PDF"
 <li><p><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">Jupyter extension</a></p></li>
 </ul>
 </div>
-<p>Now close and restart VS Code.</p>
+<p>Now <strong>close and restart</strong> VS Code.</p>
 </section>
 <section id="jupyter-notebooks">
 <h3>Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permalink to this headline">#</a></h3>
@@ -697,6 +730,7 @@ title="Print to PDF"
 <li><p><a class="reference external" href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks">How to use Jupyter Notebooks in VS Code</a></p></li>
 </ul>
 </div>
+<p>If you can’t select a kernel (like <code class="docutils literal notranslate"><span class="pre">base</span></code>or <code class="docutils literal notranslate"><span class="pre">webscraping</span></code>), try to close and restart VS Code.</p>
 </section>
 <section id="optional-tutorials">
 <h3>Optional tutorials<a class="headerlink" href="#optional-tutorials" title="Permalink to this headline">#</a></h3>
@@ -710,7 +744,6 @@ title="Print to PDF"
 </section>
 <section id="troubleshooting">
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">#</a></h2>
-<p>If you run into problems with Anaconda (maybe you have an old version), you may uninstall Anaconda from your machine and install the latest version: follow this guide of how to <a class="reference external" href="https://docs.anaconda.com/anaconda/install/uninstall/">uninstall Anaconda</a>.</p>
 <p>If you have troubles to use Anaconda in Visual Studio Code, follow these instructions:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://stackoverflow.com/a/61937090/14796848">Windows</a></p></li>
@@ -738,78 +771,17 @@ title="Print to PDF"
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/join">Create a free GitHub account with your HdM-email</a></p></li>
 <li><p>Verify your GitHub email</p></li>
-<li><p>Install the <a class="reference external" href="https://code.visualstudio.com/docs/editor/github">VS Code GitHub extension</a></p></li>
-<li><p><a class="reference external" href="https://desktop.github.com/">Install GitHub desktop to synchronize your machine with GitHub</a></p></li>
+<li><p>Go to Moodle and accept the invitation to the first <a class="reference external" href="https://e-learning.hdm-stuttgart.de/moodle/mod/forum/discuss.php?d=104582">demo application exercise</a></p></li>
+<li><p><a class="reference external" href="https://desktop.github.com/">Install GitHub Desktop to synchronize your machine with GitHub</a></p></li>
 </ul>
 </div>
-</section>
-<hr class="docutils" />
-<section id="fundamentals">
-<h2>Fundamentals<a class="headerlink" href="#fundamentals" title="Permalink to this headline">#</a></h2>
-<section id="python">
-<h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">#</a></h3>
-<p>Python is an object-oriented language (an object is an entity that contains data along with associated metadata and/or functionality).</p>
-<p>One thing that distinguishes Python from many other programming languages is that it is interpreted rather than compiled. This means that it is executed line by line which is particular useful for data analysis, as well as the creation of interactive, executable documents like Jupyter Notebooks.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Python is an interpreted language. The Python interpreter runs a program by executing one statement at a time.</p>
-</div>
-<p>On top of this, there is a broad ecosystem of third-party tools and modules (like Jupyter Notebook) that offer more specialized data science functionality.</p>
-</section>
-<hr class="docutils" />
-<section id="jupyter-notebook">
-<h3>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this headline">#</a></h3>
-<p><a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a> is an open-source application that allows you to create and share documents that contain code, equations, visualizations and narrative text.</p>
-<br>
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/jupyter.png"><img alt="jupyter" class="bg-primary mb-1 align-center" src="../_images/jupyter.png" style="width: 300px;" /></a>
-<br>
-<p>A notebook is basically a list of cells and the cells contain either</p>
-<ol class="simple">
-<li><p>explanatory text (written in markdown)</p></li>
-<li><p>executable code</p></li>
-<li><p>code output</p></li>
-</ol>
-<p>Note that we will use Jupyter Notebook inside the coding editor Visual Studio Code or Google Colab.</p>
-</section>
-<section id="colab">
-<span id="id3"></span><h3>Colab<a class="headerlink" href="#colab" title="Permalink to this headline">#</a></h3>
-<p>Colaboratory, or “Colab” for short, is a free to use product from Google Research. Colab allows anybody to write and execute python code through the browser, and is especially well suited to perform data analysis and machine learning.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Colab is a free Jupyter notebook environment that requires no setup, and runs entirely on the Cloud.</p>
-</div>
-<p>Watch this video to get a first impression of Colab:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/inN8seMm7UI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p>Let`s start your first Colab notebook to get an overview about some basic features:</p>
-<div class="tip admonition">
-<p class="admonition-title">Resources</p>
+<p>If you do not have any repositories associated with <strong>GitHub Desktop</strong>, you will see a “Let’s get started!” view, where you can choose to create and clone a tutorial repository, clone an existing repository from the Internet, create a new repository, or add an existing repository from your hard drive.</p>
+<p><img alt="" src="https://docs.github.com/assets/cb-67627/images/help/desktop/lets-get-started.png" /></p>
+<p>If you already accepted the invitation to the first application exercise, you can:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://colab.research.google.com/notebooks/basic_features_overview.ipynb">Colab basic features overview</a></p></li>
+<li><p>select this repo (it will be shown in the right box)</p></li>
+<li><p>choose the folder <code class="docutils literal notranslate"><span class="pre">data_science</span></code> to install it to (we created this folder in <a class="reference internal" href="#create-folder"><span class="std std-ref">this step</span></a>)</p></li>
 </ul>
-</div>
-</section>
-<hr class="docutils" />
-<section id="markdown">
-<h3>Markdown<a class="headerlink" href="#markdown" title="Permalink to this headline">#</a></h3>
-<p>Markdown is one of the world’s most popular markup languages used in data science. Jupyter Notebooks use Markdown to provide an unified authoring framework for data science, combining code, its results, and commentary in Markdown.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Markdown is a simple way to format text that looks great on any device.</p>
-</div>
-<p>Markdown files are designed to be used in three ways:</p>
-<ol class="simple">
-<li><p>For communicating to decision makers, who want to focus on the conclusions, not the code behind the analysis.</p></li>
-<li><p>For collaborating with other data scientists, who are interested in both your conclusions, and how you reached them (i.e. the code).</p></li>
-<li><p>As an environment in which to do data science, as a modern day lab notebook where you can capture not only what you did, but also what you were thinking.</p></li>
-</ol>
-<p>Review this site to learn more about Markdown:</p>
-<div class="tip admonition">
-<p class="admonition-title">Resources</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://colab.research.google.com/notebooks/markdown_guide.ipynb">Interactive Colab Markdown guide</a></p></li>
-</ul>
-</div>
-</section>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -849,10 +821,10 @@ title="Print to PDF"
             <p class="prev-next-title">Course support</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="programming-syntax.html" title="next page">
+    <a class='right-next' id="next-link" href="programming-fundamentals.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Python Syntax</p>
+        <p class="prev-next-title">Fundamentals</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
