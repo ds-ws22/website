@@ -7,6 +7,8 @@
 ## Prepare
 
 
+First Data Analysis (Nr. 3): [📚](https://openintro-ims.netlify.app/data-hello.html#case-study-stents-strokes)
+
 Data basics (Nr. 4): [📚](https://openintro-ims.netlify.app/data-hello.html#data-basics)
 
 
@@ -24,10 +26,10 @@ Download slides: [📑](https://drive.google.com/file/d/1-9gUUeSdBlKKgTruCJtUU3z
 (practice)=
 ## Practice
 
-First Data Analysis (Nr. 4): [💻](../ae/ae1/01-1b-netflix-g.ipynb)
+First Data Analysis: [💻](../ae/ae1/01-1b-netflix-g.ipynb)
 
 
-Data basics (Nr. 5): [☑️](https://forms.gle/EJT7mcYgPi8drKgR9)
+Data basics: [☑️](https://forms.gle/EJT7mcYgPi8drKgR9)
 
 
 ---
