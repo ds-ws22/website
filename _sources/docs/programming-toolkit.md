@@ -2,7 +2,7 @@
 
 This section contains an overview about the programming toolkit you will need for our course. 
 
-You will simply need to:
+You will need to:
 
 1. Install [Anaconda](anaconda) (includes Python and some toolkits)
 2. Install [Visual Studio Code](vscode) (a code editor)
@@ -36,12 +36,28 @@ You can skip the installation step if you already have Anaconda on your machine.
 
 Follow the steps described in the next section.
 
-### Anaconda environment
+### Update Anaconda 
 
 - On *Windows* open the Start menu and open the "Anaconda Command Prompt". 
 
 - On *macOS*: [Open your terminal](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) 
 
+
+Let's first update to the latest version of Anaconda (note that this may take a while):
+
+Update the conda package manager to the latest version:
+
+```bash
+conda update conda
+```
+
+Update Anaconda to the latest version
+
+```bash
+conda update anaconda
+```
+
+### Use conda-forge
 
 Instead of the conda defaults channel, we want to use the community-led alternative `conda-forge` to install Python modules. 
 
@@ -56,6 +72,8 @@ Then make `conda-forge` the priority channel:
 ```bash
 conda config --set channel_priority strict
 ```
+
+### Anaconda environment
 
 Now you can install the modules we need for our course in a new environment (we call this new environment `ds`). 
 
@@ -118,15 +136,20 @@ Let's install some important extensions:
 - [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) 
 ```
 
+Now close and restart VS Code.
+
 ### Jupyter Notebooks
 
-We usually work with Jupyter Notebook files in VS Code:
+We usually work with Jupyter Notebook files in VS Code. Open a Juptyer Notebook in VS Code:
+
 
 ```{admonition} To do
 :class: tip
 - [How to use Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
 
 ```
+
+
 
 ### Optional tutorials
 
@@ -141,9 +164,8 @@ Here some resources to get familiar with VS Code:
 
 ## Troubleshooting
 
-Make sure that you use the latest version (in our course, we use Python 3.9). In your terminal, type `python --version` to see which Python version you are using in your Anaconda base environment.
+If you run into problems with Anaconda (maybe you have an old version), you may uninstall Anaconda from your machine and install the latest version: follow this guide of how to [uninstall Anaconda](https://docs.anaconda.com/anaconda/install/uninstall/).
 
-*You may also uninstall your current Anaconda environment from your machine and install the latest version: here a guide of how to [uninstall Anaconda](https://docs.anaconda.com/anaconda/install/uninstall/).*
 
 If you have troubles to use Anaconda in Visual Studio Code, follow these instructions: 
 
@@ -176,9 +198,8 @@ You need a free GitHub-account for our course. Please follow the instructions be
 ```{admonition} To do
 :class: tip
 
-- [Create a GitHub account with your HdM-email](https://github.com/join)
+- [Create a free GitHub account with your HdM-email](https://github.com/join)
 - Verify your GitHub email
-- You may also sign up fot the free [student developer pack](https://education.github.com/pack)  
 - Install the [VS Code GitHub extension](https://code.visualstudio.com/docs/editor/github)
 - [Install GitHub desktop to synchronize your machine with GitHub](https://desktop.github.com/)
 ```
