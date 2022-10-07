@@ -15,7 +15,7 @@ For a more detailed semester overview, take a look at the [course-schedule](../d
 |	Week	|	Date	|	Content	|	Slides	|	Materials	|	
 |	---	|	---	|	---	|	---	|	---	|	
 |	1	|	10.10.	|	Introduction	|	[📑](https://drive.google.com/file/d/1-MhFzAXL9l0z1381-DaqW63GFWsw_epQ/view?usp=sharing)	|	[📁](../weeks/week1.md)	|	
-|	2	|	17.10.	|	Data analysis	|	[📑](https://drive.google.com/file/d/1-9gUUeSdBlKKgTruCJtUU3zTFh4Mzj-r/view?usp=sharing)	|	[📁](../weeks/week2.md)	|	
+|	2	|	17.10.	|	Data analysis	|	[📑](https://drive.google.com/file/d/1-P-0r1sXlAoEj1CpGKu2JoFQg_0aICR-/view?usp=sharing)	|	[📁](../weeks/week2.md)	|	
 |	3	|	24.10.	|	Data extraction (web scraping)	|		|		|	
 |	4	|	31.10.	|	Data extraction (API)	|		|		|	
 |	5	|	07.11.	|	Text Mining	|		|		|	
@@ -27,7 +27,7 @@ For a more detailed semester overview, take a look at the [course-schedule](../d
 |	11	|	19.12.	|	Boosted Tree	|		|		|	
 |	12	|	09.01.	|	Deep learning	|		|		|	
 |	13	|	16.01.	|	NLP	|		|		|	
-|	14	|	23.01.	|	Computer vision	|		|		|				
+|	14	|	23.01.	|	Computer vision	|		|		|			
 
 ---
 
