@@ -16,7 +16,7 @@
 (participate)=
 ## Participate
 
-Download slides: [📑](https://drive.google.com/file/d/1-8T5QvckmSMD8qVMgtzQsZxOUoswsOgk/view?usp=sharing)
+Download slides: [📑](https://drive.google.com/file/d/1-MhFzAXL9l0z1381-DaqW63GFWsw_epQ/view?usp=sharing)
 
 
 Install programming tools: [💾](../docs/programming-toolkit.md)
