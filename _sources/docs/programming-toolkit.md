@@ -2,11 +2,11 @@
 
 This section contains an overview about the programming toolkit you will need for our course. 
 
-You will need to:
+You will need to install:
 
-1. Install the latest version of [Anaconda](anaconda) (includes Python and some toolkits) 
-2. Install [Visual Studio Code](vscode) (a code editor)
-3. Install [Git and create an acount at GitHub](github) (for software development and version control)
+1. the latest version of [Anaconda](anaconda) (includes Python and some toolkits) 
+2. [Visual Studio Code](vscode) (a code editor) and some extensions
+3. [Git and create an acount at GitHub](github) (for software development and version control)
 
 Please read the following instructions.
 
@@ -36,7 +36,7 @@ To avoid compatibility problems with old versions of Anaconda, I recommend to un
 #### macOS
 
 1. [Open your terminal](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac) 
-1. Remove your entire Anaconda directory with `rm -rf`. Depending on your installation, your anaconda3 directory will be in your root folder or in your opt folder. If you are not sure where anaconda is installed, simply enter all commands. Note that there will be no information printed in the terminal - it will just silently uninstall Anaconda. 
+2. Remove your entire Anaconda directory with `rm -rf`. Depending on your installation, your anaconda3 directory will be in your root folder or in your opt folder. If you are not sure where anaconda is installed, simply enter all commands. Note that there will be no information printed in the terminal - it will just silently uninstall Anaconda. 
 
 First try the opt folder:
 
@@ -64,7 +64,7 @@ Install the latest version of the Anaconda Individual Edition:
 ```{admonition} To do
 :class: tip
 
-- [Anaconda installation](https://www.anaconda.com/products/individual)
+-  💾 [Anaconda installation](https://www.anaconda.com/products/individual)
 
 ```
 
@@ -122,11 +122,12 @@ conda config --set channel_priority strict
 
 Now you can install some modules in a new Anaconda environment. We call this new environment `webscraping`. 
 
-Copy this code and run it in your terminal or command prompt: 
+Copy this code and run it in your terminal (command prompt): 
 
 ```bash
 conda create -n webscraping python=3.9 requests pandas jupyter beautifulsoup4 altair matplotlib seaborn
 ```
+
 
 When conda asks you: 
 
@@ -138,7 +139,7 @@ simply type `y` and press enter.
 (create-folder)=
 ### Create a new folder for this course
 
-You should also create a new folder for our course. I recommend to only use lowercase characters and no white space (e.g., data_science) 
+You should also create a new folder for our course. 
 
 In your terminal or command prompt, type:
 
@@ -171,7 +172,9 @@ Install VS Code:
 
 ```{admonition} To do
 :class: tip
-- [Install Code](https://code.visualstudio.com/)
+
+-  💾 Install [VS Code](https://code.visualstudio.com/)
+
 ```
 
 ### Install extensions
@@ -182,10 +185,10 @@ Let's install some extensions:
 
 ```{admonition} To do
 :class: tip
-- [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+-  💾 Install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
 
-- [Live Share Extension Pack](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack)
+-  💾 Install the [Live Share Extension Pack](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack)
 
 ```
 
@@ -197,16 +200,16 @@ We usually work with Jupyter Notebook files in VS Code.
 
 ```{admonition} To do
 :class: tip
-- [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) 
+
+-  💾 Install the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) 
 ```
+Close and restart VS Code.
 
-Now **close and restart** VS Code.
-
-Open a Juptyer Notebook in VS Code:
+Now open a Juptyer Notebook in VS Code:
 
 ```{admonition} To do
 :class: tip
-- [How to use Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
+- Learn how to [use Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
 ```
 
 If you can't select a kernel (like the so called `base` kernel), try to close and restart VS Code once again.
@@ -264,7 +267,8 @@ If you don't see the version, you need to install Git
 ```{admonition} To do
 :class: tip
 
-- [Install Git](https://git-scm.com/downloads)
+-  💾 Install [Git](https://git-scm.com/downloads)
+
 ```
 
 
@@ -275,11 +279,21 @@ You also need a free GitHub-account for our course. Please follow the instructio
 :class: tip
 
 - [Create a free GitHub account with your HdM-email](https://github.com/join)
+
+
 - Verify your GitHub email
-- Install the [VS Code GitHub extension](https://code.visualstudio.com/docs/editor/github)
-- Go to our [GitHub course classroom](https://classroom.github.com/classrooms/114878151-data-science-ws22/roster), find your HdM id and link it with your GitHub account 
-- [Install GitHub desktop to synchronize your machine with GitHub](https://desktop.github.com/)
+
+
+-  💾 Install the [VS Code GitHub extension](https://code.visualstudio.com/docs/editor/github)
+
+
+- Go to our [GitHub course classroom](), find your HdM id and link it with your GitHub account 
+
+
+-  💾 Install [GitHub desktop](https://desktop.github.com/) to synchronize your machine with GitHub
+
 ```
+
 
 Before you install the next extension, make sure you have the following prerequisites:
 
