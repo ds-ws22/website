@@ -31,7 +31,9 @@ Install programming tools: [💾](../docs/programming-toolkit.md)
 
 Go to the [course GitHub organization](https://github.com/orgs/ds-ws22/repositories) and locate the repo titled:
 
-`git-github-fundamentals-YOUR_GITHUB_USERNAME` 
+
+git-github-fundamentals-YOUR_GITHUB_USERNAME
+
 
 to get started.
 
