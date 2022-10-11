@@ -25,12 +25,9 @@ Download slides: [📑](https://drive.google.com/file/d/1-9gUUeSdBlKKgTruCJtUU3z
 ## Practice
 
 
-💻  Application exercise 1:
-
-Go to the [course GitHub organization](https://github.com/orgs/ds-ws22/repositories) and locate the repo titled:
+Accept the invitation to application exercise Nr. 1 in Moodle: [💻 ae-1-pandas](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=262127)
 
 
-ae-1-pandas-YOUR_GITHUB_USERNAME
 
 
 ---
