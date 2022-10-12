@@ -15,7 +15,8 @@ None
 ## Participate
 
 
-Download slides: [📑](https://drive.google.com/file/d/1-P-0r1sXlAoEj1CpGKu2JoFQg_0aICR-/view?usp=sharing)
+Download slides: [📑](https://drive.google.com/file/d/1-9gUUeSdBlKKgTruCJtUU3zTFh4Mzj-r/view?usp=sharing)
+
 
 
 ---
