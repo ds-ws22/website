@@ -14,4 +14,5 @@ For a semester overview, take a look at the [course-overview](../docs/course-ove
 |	1	|	2	|	10.10.	|	Programming toolkit	|		|		|	[💻](../weeks/week1.md)	|		|		|	
 |	2	|	3	|	17.10.	|	Data preparation in Pandas	|	[📚](../weeks/week2.md)	|	[📑](https://drive.google.com/file/d/1-P-0r1sXlAoEj1CpGKu2JoFQg_0aICR-/view?usp=sharing)	|	[💻](../weeks/week2.md)	|		|		|	
 |	2	|	4	|	17.10.	|	Data visualization in Altair	|		|		|		|		|		|	
-|	3	|	5	|	24.10.	|	HTML & CSS basics	|		|		|		|		|		|	
+|	3	|	5	|	24.10.	|	HTML & CSS basics	|	[📚](../weeks/week3.md)	|	 - 	|	[💻](../weeks/week3.md)	|		|		|	
+|	3	|	6	|	24.10.	|	Scraping quotes	|		|		|		|		|		|	
