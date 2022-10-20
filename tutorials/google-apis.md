@@ -1,11 +1,13 @@
 # Google APIs
 
-You need to login to [Google developers](https://developers.google.com/profile/u/me)
+## Google developer account
+
+First, you need to create an account: [Google developers](https://developers.google.com/profile/u/me)
 
 
 ## Google APIs Explorer
 
-The Google APIs Explorer is a tool available on most REST API reference documentation pages that lets you try Google API methods without writing code:
+The Google APIs Explorer is a tool available on most [REST API](https://en.wikipedia.org/wiki/Representational_state_transfer) reference documentation pages that lets you try Google API methods without writing code:
 
 - [Open Google APIs Explorer](https://developers.google.com/apis-explorer) 
 
@@ -15,7 +17,7 @@ We will use Google's Drive API v3 as an example.
 
 ## Google Drive API v3
 
-We want to create a Python command-line application that makes requests to the Drive API.
+We want to create a Python command-line application that makes requests to the Drive API by using OAuth 2.0 for authorization.
 
 
 ### Set up Anaconda environment
@@ -40,8 +42,19 @@ Install some libraries for Python:
 
 
 ```bash
-pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib pandas
+pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib googleapiclient pandas
 ```
+
+### Configure the OAuth consent screen
+
+When you use OAuth 2.0 for authorization, Google displays a consent screen to the user including a summary of your project, its policies, and the requested authorization scopes of access.
+
+
+:::{note}
+ If you don't know required consent screen information, you can use placeholder information.
+:::
+
+Follow these instruction: [Configure OAuth consent & register your app](https://developers.google.com/workspace/guides/configure-oauth-consent)
 
 ### Python quickstart
 
@@ -52,4 +65,3 @@ Next, go to the (Python quickstart)[https://developers.google.com/drive/api/quic
 1. Install the client library (we already completed this step)
 1. Set up the sample.
 1. Run the sample.
-
