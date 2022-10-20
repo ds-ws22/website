@@ -58,7 +58,7 @@
 ## Practice
 
 
-Accept the invitation to application exercise Nr. 2 in Moodle: [💻 ae-2-scraping-quotes](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=262127)
+Accept the invitation to application exercise Nr. 2 in Moodle: [💻 ae-2-scraping-quotes](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=262131)
 
 ---
 
