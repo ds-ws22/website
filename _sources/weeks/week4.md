@@ -16,7 +16,11 @@ None
 
 
 
-Open this [Twitter setup tutorial](https://github.com/kirenz/twitter-tutorial) on GitHub.
+[Twitter setup tutorial](https://github.com/kirenz/twitter-tutorial) on GitHub.
+
+
+
+[Google API setup](../tutorials/google-api//google-apis.md)
 
 ---
 
