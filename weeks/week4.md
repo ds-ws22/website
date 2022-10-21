@@ -28,7 +28,7 @@ None
 ## Practice
 
 
-💻 Application exercise: [Twitter API](../ae/ae3/twitter-api.md)
+💻 Application exercise 3: [Twitter API](../ae/ae3/twitter-api.md)
 
 
 
