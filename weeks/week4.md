@@ -20,7 +20,9 @@ None
 
 
 
-[Google API setup](../tutorials/google-api//google-apis.md)
+[Google API setup](../tutorials/google-api/google-apis.md)
+
+
 
 ---
 
