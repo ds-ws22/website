@@ -7,9 +7,12 @@ PostgreSQL is a powerful, open source object-relational database system that use
 - [How to use PostgreSQL in Visual Studio Code](https://www.kirenz.com/post/2021-12-22-how-to-use-postgresql-in-visual-studio-code/how-to-use-postgresql-in-visual-studio-code/)
 
 
+- [PostgreSQL and pandas in Python](https://www.kirenz.com/post/2021-12-20-postgresql-and-pandas-in-python/postgresql-and-pandas-in-python/)
+
+
 - [How to use PostgreSQL with Jupyter Notebooks in Python](https://www.kirenz.com/post/2021-12-22-how-to-use-postgresql-with-jupyter-notebook-in-python/how-to-use-postgresql-with-jupyter-notebook-in-python/)
 
-- [PostgreSQL and pandas in Python](https://www.kirenz.com/post/2021-12-20-postgresql-and-pandas-in-python/postgresql-and-pandas-in-python/)
+
 
 
 ---
