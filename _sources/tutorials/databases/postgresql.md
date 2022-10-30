@@ -51,10 +51,12 @@ VALUES ('Janet', 'Smith', 'F.D. Roosevelt HS', '2011-10-30', 36200),
 ## PostgreSQL & Python
 
 
+- [PostgreSQL and pandas in Python](https://www.kirenz.com/post/2021-12-20-postgresql-and-pandas-in-python/postgresql-and-pandas-in-python/)
+
 - [How to use PostgreSQL with Jupyter Notebooks in Python](https://www.kirenz.com/post/2021-12-22-how-to-use-postgresql-with-jupyter-notebook-in-python/how-to-use-postgresql-with-jupyter-notebook-in-python/)
 
 
-- [PostgreSQL and pandas in Python](https://www.kirenz.com/post/2021-12-20-postgresql-and-pandas-in-python/postgresql-and-pandas-in-python/)
+
 
 
 ---
