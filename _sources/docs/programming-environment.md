@@ -20,7 +20,7 @@ conda create -n ds python=3.9 pandas openpyxl jupyter scikit-learn altair vega_d
 Activate the new environment:
 
 ```bash
-conda activate webscraping
+conda activate ds
 ```
 
 ---
