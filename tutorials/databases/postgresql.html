@@ -366,12 +366,58 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-postgresql">
+   Download PostgreSQL
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mac">
+     Mac
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#windows">
+     Windows
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#postgresql-in-vs-code">
+   PostgreSQL in VS Code
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#postgresql-python">
+   PostgreSQL &amp; Python
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -383,6 +429,41 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-postgresql">
+   Download PostgreSQL
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mac">
+     Mac
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#windows">
+     Windows
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#postgresql-in-vs-code">
+   PostgreSQL in VS Code
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#postgresql-python">
+   PostgreSQL &amp; Python
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -393,13 +474,29 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="postgresql">
 <h1>PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this headline">#</a></h1>
 <p>PostgreSQL is a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.postgresql.org/download/">Download PostgreSQL</a></p></li>
-<li><p><a class="reference external" href="https://www.kirenz.com/post/2021-12-22-how-to-use-postgresql-in-visual-studio-code/how-to-use-postgresql-in-visual-studio-code/">How to use PostgreSQL in Visual Studio Code</a></p></li>
-<li><p><a class="reference external" href="https://www.kirenz.com/post/2021-12-20-postgresql-and-pandas-in-python/postgresql-and-pandas-in-python/">PostgreSQL and pandas in Python</a></p></li>
-<li><p><a class="reference external" href="https://www.kirenz.com/post/2021-12-22-how-to-use-postgresql-with-jupyter-notebook-in-python/how-to-use-postgresql-with-jupyter-notebook-in-python/">How to use PostgreSQL with Jupyter Notebooks in Python</a></p></li>
-</ul>
 <hr class="docutils" />
+<section id="download-postgresql">
+<h2>Download PostgreSQL<a class="headerlink" href="#download-postgresql" title="Permalink to this headline">#</a></h2>
+<section id="mac">
+<h3>Mac<a class="headerlink" href="#mac" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Download the latest version of <a class="reference external" href="https://postgresapp.com/">postgresapp</a></p></li>
+<li><p>Download <a class="reference external" href="https://www.pgadmin.org/download/">pgAdmin</a>, an open source administration and development platform for PostgreSQL.</p></li>
+</ul>
+</section>
+<section id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Download the latest version of <a class="reference external" href="https://www.postgresql.org/download/windows/">PostgreSQL</a> and install PostgreSQL server and pgAdmin (a graphical tool for managing and developing your databases). You don’t need to install StackBuilder.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="postgresql-in-vs-code">
+<h2>PostgreSQL in VS Code<a class="headerlink" href="#postgresql-in-vs-code" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.kirenz.com/post/2021-12-22-how-to-use-postgresql-in-visual-studio-code/how-to-use-postgresql-in-visual-studio-code/">How to use PostgreSQL in Visual Studio Code</a></p></li>
+</ul>
 <p>SQL example:</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- create table</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">teachers</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
@@ -421,6 +518,16 @@ title="Print to PDF"
 <span class="w">       </span><span class="p">(</span><span class="s1">&#39;Kathleen&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Roush&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;F.D. Roosevelt HS&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2010-10-22&#39;</span><span class="p">,</span><span class="mi">38500</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
 </pre></div>
 </div>
+</section>
+<hr class="docutils" />
+<section id="postgresql-python">
+<h2>PostgreSQL &amp; Python<a class="headerlink" href="#postgresql-python" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.kirenz.com/post/2021-12-22-how-to-use-postgresql-with-jupyter-notebook-in-python/how-to-use-postgresql-with-jupyter-notebook-in-python/">How to use PostgreSQL with Jupyter Notebooks in Python</a></p></li>
+<li><p><a class="reference external" href="https://www.kirenz.com/post/2021-12-20-postgresql-and-pandas-in-python/postgresql-and-pandas-in-python/">PostgreSQL and pandas in Python</a></p></li>
+</ul>
+<hr class="docutils" />
+</section>
 </section>
 
     <script type="text/x-thebe-config">
