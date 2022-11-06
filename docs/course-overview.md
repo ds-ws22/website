@@ -17,7 +17,7 @@ For a more detailed semester overview, take a look at the [course-schedule](../d
 |	2	|	17.10.	|	Data analysis	|	[📑](https://drive.google.com/file/d/1-P-0r1sXlAoEj1CpGKu2JoFQg_0aICR-/view?usp=sharing)	|	[📁](../weeks/week2.md)	|	
 |	3	|	24.10.	|	Data extraction (web scraping)	|	 - 	|	[📁](../weeks/week3.md)	|	
 |	4	|	31.10.	|	Data extraction (Databases & API)	|	[📑](https://drive.google.com/file/d/1-kn1zRRwU_aXHCkATjUwnn0KfjQ2u6kY/view?usp=sharing)	|	[📁](../weeks/week4.md)	|	
-|	5	|	07.11.	|	Text Mining	|		|		|	
+|	5	|	07.11.	|	Text Mining	|	 - 	|	[📁](../weeks/week5.md)	|	
 |	6	|	14.11.	|	Regression	|		|		|	
 |	7	|	21.11.	|	Data preprocessing	|		|		|	
 |	8	|	28.11.	|	ML project 	|		|		|	
