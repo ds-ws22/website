@@ -35,7 +35,7 @@ Download slides: [📑](https://drive.google.com/file/d/1-kn1zRRwU_aXHCkATjUwnn0
 
 ---
 
-[Google API setup](../tutorials/google-api/google-apis.md)
+[Google API setup](../tutorials/google-api/google-apis.md) (optional)
 
 
 
