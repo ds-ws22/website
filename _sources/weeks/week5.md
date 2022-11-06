@@ -1,4 +1,4 @@
-# Week 4
+# Week 5
 
 
 ---
@@ -16,13 +16,10 @@ None
 
 
 
-You will need to install three modules (nltk, wordcloud and altair) in a Anaconda environment of your choice:
+Let's create a new environment called `nlp`:
 
 
-```bash
-conda install nltk wordcloud altair
-```
-
+conda create -n nlp python=3.9 pandas jupyter altair matplotlib nltk wordcloud
 
 
 ---
