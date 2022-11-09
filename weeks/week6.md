@@ -18,6 +18,7 @@ None
 Download slides: [📑](https://drive.google.com/file/d/1-ZfUfZ671sAIsGPhKhvPfG9_mpgOXuro/view?usp=sharing)
 
 
+[Scikit-learn API](../tutorials/models/scikit-learn.ipynb)
 
 ---
 
