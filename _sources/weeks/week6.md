@@ -30,10 +30,6 @@ Accept the invitation to application exercise Nr. 6 in Moodle: [💻 ae-6-models
 
 
 
-
-
-
-
 ---
 
 (perform)=
