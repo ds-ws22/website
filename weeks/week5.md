@@ -18,9 +18,9 @@ None
 
 Let's create a new environment called `nlp`:
 
-
+```bash
 conda create -n nlp python=3.9 pandas jupyter altair matplotlib nltk wordcloud
-
+```
 
 ---
 
