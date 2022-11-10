@@ -18,7 +18,11 @@ For a semester overview, take a look at the [course-overview](../docs/course-ove
 |	3	|	6	|	24.10.	|	Scraping quotes	|		|		|		|		|		|	
 |	4	|	7	|	31.10.	|	Architectures	|	[📚](../weeks/week4.md)	|	[📑](https://drive.google.com/file/d/1-kn1zRRwU_aXHCkATjUwnn0KfjQ2u6kY/view?usp=sharing)	|		|		|		|	
 |	4	|	8	|	31.10.	|	Data architecures	|		|	 - 	|		|		|		|	
-|	4	|	9	|	31.10.	|	PostgreSQL	|		|		|		|		|		|	
+|	4	|	9	|	31.10.	|	PostgreSQL	|		|	[📑](https://drive.google.com/file/d/1-ZfUfZ671sAIsGPhKhvPfG9_mpgOXuro/view?usp=sharing)	|		|		|		|	
 |	4	|	10	|	31.10.	|	APIs (Twitter and Google)	|		|		|		|		|		|	
 |	5	|	11	|	07.11.	|	Text Mining	|	[📚](../weeks/week5.md)	|	 - 	|	[💻](../weeks/week5.md)	|		|		|	
-|	5	|	12	|	07.11.	|	Sentiment analysis	|		|		|	[💻](../weeks/week5.md)	|		|		|	
+|	5	|	12	|	07.11.	|	Sentiment analysis	|		|		|		|		|		|	
+|	6	|	13	|	14.11.	|	Sales and ads	|	[📚](../weeks/week6.md)	|	[📑](https://drive.google.com/file/d/1-ZfUfZ671sAIsGPhKhvPfG9_mpgOXuro/view?usp=sharing)	|	[💻](../weeks/week6.md)	|		|		|	
+|	6	|	14	|	14.11.	|	Mean squared error 1	|		|		|		|		|		|	
+|	6	|	15	|	14.11.	|	Fitting a line and residuals	|		|		|		|		|		|	
+|	6	|	16	|	14.11.	|	Scikit-learn 	|		|		|		|		|		|	
