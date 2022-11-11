@@ -65,3 +65,9 @@ Next, go to the [Python quickstart](https://developers.google.com/drive/api/quic
 1. Install the client library (we already completed this step)
 1. Set up the sample.
 1. Run the sample.
+
+Important note:
+
+```{warning}
+Since our app's publishing status is in 'Testing', the token will last for 2 weeks only. This means after two weeks, you have to delete the file `token.json`and run this script again, to generate a new token.
+```
