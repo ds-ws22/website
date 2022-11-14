@@ -18,7 +18,17 @@ None
 Download slides: [📑](https://drive.google.com/file/d/1-ZfUfZ671sAIsGPhKhvPfG9_mpgOXuro/view?usp=sharing)
 
 
+Code: 
+
+[13. Introduction to models (with scikit-learn)](../code/13-ds-happy-scikit.ipynb)
+
+
+[18. Fitting a line and residuals (with scikit-learn)](../code/18-fitting.ipynb)
+
+
+<!--
 [Scikit-learn API](../tutorials/models/scikit-learn.ipynb)
+-->
 
 ---
 
