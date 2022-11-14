@@ -42,7 +42,7 @@ Accept the invitation to application exercise Nr. 5 in Moodle: [💻 ae-5-sentim
 (perform)=
 ## Perform
 
-None
+[Homework 1 (see Moodle)](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=267036)
 
 
 ---
