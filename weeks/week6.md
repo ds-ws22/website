@@ -21,7 +21,7 @@ Download slides: [📑](https://drive.google.com/file/d/1-ZfUfZ671sAIsGPhKhvPfG9
 Code: 
 
 
-[17. Fitting a line and residuals (with scikit-learn)](../code/17-fitting.ipynb)
+[15. Fitting a line and residuals (with scikit-learn)](../code/15-fitting.ipynb)
 
 <!--
 [Scikit-learn API](../tutorials/models/scikit-learn.ipynb)
