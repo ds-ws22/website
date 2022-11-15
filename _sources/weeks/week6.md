@@ -23,7 +23,7 @@ Code:
 [13. Introduction to models (with scikit-learn)](../code/13-ds-happy-scikit.ipynb)
 
 
-
+[18. Fitting a line and residuals (with scikit-learn)](../code/18-fitting.ipynb)
 
 <!--
 [Scikit-learn API](../tutorials/models/scikit-learn.ipynb)
