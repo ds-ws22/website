@@ -18,8 +18,8 @@ For a more detailed semester overview, take a look at the [course-schedule](../d
 |	3	|	24.10.	|	Data extraction (web scraping)	|	 - 	|	[📁](../weeks/week3.md)	|	
 |	4	|	31.10.	|	Data extraction (Databases & API)	|	[📑](https://drive.google.com/file/d/1-kn1zRRwU_aXHCkATjUwnn0KfjQ2u6kY/view?usp=sharing)	|	[📁](../weeks/week4.md)	|	
 |	5	|	07.11.	|	Text Mining	|	 - 	|	[📁](../weeks/week5.md)	|	
-|	6	|	14.11.	|	Regression	|	[📑](https://drive.google.com/file/d/1-ZfUfZ671sAIsGPhKhvPfG9_mpgOXuro/view?usp=sharing)	|	[📁](../weeks/week6.md)	|	
-|	7	|	21.11.	|	Data preprocessing	|		|		|	
+|	6	|	14.11.	|	Regression I	|	[📑](https://drive.google.com/file/d/1-ZfUfZ671sAIsGPhKhvPfG9_mpgOXuro/view?usp=sharing)	|	[📁](../weeks/week6.md)	|	
+|	7	|	21.11.	|	Regression II	|		|		|	
 |	8	|	28.11.	|	ML project 	|		|		|	
 |	9	|	05.12.	|	Classification	|		|		|	
 |	10	|	12.12.	|	Random Forest	|		|		|	
