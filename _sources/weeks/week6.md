@@ -7,7 +7,8 @@
 ## Prepare
 
 
-None
+[📚 Fitting a line and residuals](https://openintro-ims.netlify.app/model-slr.html#fit-line-res-cor)
+
 
 ---
 
