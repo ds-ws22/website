@@ -7,7 +7,7 @@
 ## Prepare
 
 
-[📚 Fitting a line and residuals](https://openintro-ims.netlify.app/model-slr.html#fit-line-res-cor)
+None
 
 ---
 
@@ -15,26 +15,26 @@
 ## Participate
 
 
-Download slides: 
+Download slides: [📑](https://drive.google.com/file/d/1-cGm0I8N0sVjoLRFJrz-4t15PlR_Qy_4/view?usp=sharing)
 
+
+
+
+[Data preprocessing overview](https://kirenz.github.io/ds-python/docs/data.html)
 
 Code: 
 
-[13. Introduction to models (with scikit-learn)](../code/13-ds-happy-scikit.ipynb)
 
+[21 Sales prediction example part 1](../code/21-sales.ipynb)
+[22 Sales prediction example part 2](../code/22-sales.ipynb)
 
-
-<!--
-[Scikit-learn API](../tutorials/models/scikit-learn.ipynb)
--->
 
 ---
 
 (practice)=
 ## Practice
 
-Accept the invitation to application exercise Nr. 6 in Moodle: [💻 ae-6-models](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=262131)
-
+None
 
 
 

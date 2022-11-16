@@ -18,12 +18,17 @@ For a semester overview, take a look at the [course-overview](../docs/course-ove
 |	3	|	6	|	24.10.	|	Scraping quotes	|		|		|		|		|		|	
 |	4	|	7	|	31.10.	|	Architectures	|	[📚](../weeks/week4.md)	|	[📑](https://drive.google.com/file/d/1-kn1zRRwU_aXHCkATjUwnn0KfjQ2u6kY/view?usp=sharing)	|		|		|		|	
 |	4	|	8	|	31.10.	|	Data architecures	|		|	 - 	|		|		|		|	
-|	4	|	9	|	31.10.	|	PostgreSQL	|		|	[📑](https://drive.google.com/file/d/1-ZfUfZ671sAIsGPhKhvPfG9_mpgOXuro/view?usp=sharing)	|		|		|		|	
+|	4	|	9	|	31.10.	|	PostgreSQL	|		|		|		|		|		|	
 |	4	|	10	|	31.10.	|	APIs (Twitter and Google)	|		|		|		|		|		|	
 |	5	|	11	|	07.11.	|	Text Mining	|	[📚](../weeks/week5.md)	|	 - 	|	[💻](../weeks/week5.md)	|		|		|	
 |	5	|	12	|	07.11.	|	Sentiment analysis	|		|		|		|	[🖥 HW1](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=267036)	|		|	
 |	6	|	13	|	14.11.	|	Sales and ads (models 1)	|	[📚](../weeks/week6.md)	|	[📑](https://drive.google.com/file/d/1-ZfUfZ671sAIsGPhKhvPfG9_mpgOXuro/view?usp=sharing)	|	[💻](../weeks/week6.md)	|		|		|	
-|	6	|	14-1	|	14.11.	|	Mean squared error 1 (models 2)	|		|		|	[💻](../weeks/week6.md)	|		|		|	
-|	6	|	14-2	|	14.11.	|	Mean squared error 2 (models 3)	|		|		|	[💻](../weeks/week6.md)	|		|		|	
-|	6	|	14-3	|	14.11.	|	Mean squared error 3 (models 4)	|		|		|	[💻](../weeks/week6.md)	|		|		|	
-|	6	|	15	|	14.11.	|	Fitting a line and residuals	|		|		|		|		|		|	
+|	6	|	14	|	14.11.	|	Mean squared error 1 (models 2)	|		|		|	[💻](../weeks/week6.md)	|		|		|	
+|	6	|	15	|	14.11.	|	Mean squared error 2 (models 3)	|		|		|	[💻](../weeks/week6.md)	|		|		|	
+|	6	|	16	|	14.11.	|	Mean squared error 3 (models 4)	|		|		|	[💻](../weeks/week6.md)	|		|		|	
+|	6	|	17	|	14.11.	|	Fitting a line and residuals	|		|		|		|		|		|	
+|	7	|	18	|	21.11.	|	Regression case happier	|	[📚](../weeks/week7.md)	|	[📑](https://drive.google.com/file/d/1-cGm0I8N0sVjoLRFJrz-4t15PlR_Qy_4/view?usp=sharing)	|		|		|		|	
+|	7	|	19	|	21.11.	|	Data splitting	|		|		|		|		|		|	
+|	7	|	20	|	21.11.	|	Data preprocessing overview	|		|		|		|		|		|	
+|	7	|	21	|	21.11.	|	Sales prediction example part 1	|		|		|		|		|		|	
+|	7	|	22	|	21.11.	|	Sales prediction example part 2	|		|		|		|		|		|	
