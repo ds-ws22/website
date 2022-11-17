@@ -1223,17 +1223,6 @@ Name: sales, dtype: float64
     <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Intercept&quot;</span><span class="p">],</span>
     <span class="s2">&quot;Coefficient&quot;</span><span class="p">:[</span><span class="n">reg</span><span class="o">.</span><span class="n">intercept_</span><span class="p">]}</span>
     <span class="p">)</span>
-
-<span class="c1"># make a slope table</span>
-<span class="n">slope</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="n">features</span><span class="p">,</span>
-    <span class="s2">&quot;Coefficient&quot;</span><span class="p">:</span> <span class="n">reg</span><span class="o">.</span><span class="n">coef_</span><span class="p">}</span>
-<span class="p">)</span>
-
-<span class="c1"># combine estimates of intercept and slopes</span>
-<span class="n">table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">intercept</span><span class="p">,</span> <span class="n">slope</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="nb">round</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1284,6 +1273,27 @@ Name: sales, dtype: float64
   </tbody>
 </table>
 </div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a slope table</span>
+<span class="n">slope</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="n">features</span><span class="p">,</span>
+    <span class="s2">&quot;Coefficient&quot;</span><span class="p">:</span> <span class="n">reg</span><span class="o">.</span><span class="n">coef_</span><span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># combine estimates of intercept and slopes</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">intercept</span><span class="p">,</span> <span class="n">slope</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">round</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="evaluation">
