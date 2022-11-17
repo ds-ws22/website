@@ -25,7 +25,9 @@ Download slides: [📑](https://drive.google.com/file/d/1-cGm0I8N0sVjoLRFJrz-4t1
 Code: 
 
 
-[21 Sales prediction example part 1](../code/21-sales.ipynb)
+[21 Sales prediction example part 1](../code/21-sales.ipynb)  
+
+
 [22 Sales prediction example part 2](../code/22-sales.ipynb)
 
 
