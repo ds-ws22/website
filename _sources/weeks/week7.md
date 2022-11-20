@@ -7,7 +7,10 @@
 ## Prepare
 
 
-None
+[Linear Regression - A Visual Introduction To (Almost) Everything You Should Know](https://mlu-explain.github.io/linear-regression/) by Jared Wilber.
+
+
+[The Importance of Data Splitting](https://mlu-explain.github.io/train-test-validation/) by Jared Wilber & Brent Werness.
 
 ---
 
@@ -18,11 +21,9 @@ None
 Download slides: [📑](https://drive.google.com/file/d/1-cGm0I8N0sVjoLRFJrz-4t15PlR_Qy_4/view?usp=sharing)
 
 
-
-
-[Data preprocessing overview](https://kirenz.github.io/ds-python/docs/data.html)
-
 Code: 
+
+[20 Data preprocessing overview](../code/20-data.md)  
 
 
 [21 Sales prediction example part 1](../code/21-sales.ipynb)  
