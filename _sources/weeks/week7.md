@@ -23,6 +23,11 @@ Download slides: [📑](https://drive.google.com/file/d/1-cGm0I8N0sVjoLRFJrz-4t1
 
 Code: 
 
+[18 Regression case happier](../code/18-ds-happy-scikit.ipynb)  
+
+[19 Regression case happier with data splitting](../code/19-ds-happy-scikit-splitting.ipynb)  
+
+
 [20 Data preprocessing overview](../code/20-data.md)  
 
 
