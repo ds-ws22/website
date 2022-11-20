@@ -31,10 +31,10 @@ Code:
 [20 Data preprocessing overview](../code/20-data.md)  
 
 
-[21 Sales prediction example part 1](../code/21-sales.ipynb)  
+[21 Sales prediction example part 1 (without data splitting)](../code/21-sales.ipynb)  
 
 
-[22 Sales prediction example part 2](../code/22-sales.ipynb)
+[22 Sales prediction example part 2 (with data splitting)](../code/22-sales.ipynb)
 
 
 ---
