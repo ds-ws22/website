@@ -6,17 +6,20 @@
 (prepare)=
 ## Prepare
 
+<!--
 [📚 Hands on ML Project](https://e-learning.hdm-stuttgart.de/moodle/pluginfile.php/430259/mod_resource/content/0/Hands%20on%20Machine%20Learning%2C%20project.pdf)
+-->
 
 ---
 
 (participate)=
 ## Participate
 
-
+<!--
 Code: 
 
 [ML project housing](../code/23-case-ca-housing.ipynb)
+-->
 
 ---
 
