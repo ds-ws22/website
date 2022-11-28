@@ -24,7 +24,7 @@ Let's start with our data exploration:
 
 ```{admonition} Jupyter notebook
 :class: tip
-- [Data exploration](https://kirenz.github.io/regression/docs/case-duke-exploration.html)
+- [Data exploration](../code/23-case-duke-exploration.ipynb)
 ```
 
 
@@ -35,7 +35,7 @@ Linear regression with scikit-learn:
 
 ```{admonition} Jupyter notebook
 :class: tip
-- [Model: scikit-learn](https://kirenz.github.io/regression/docs/case-duke-sklearn.html)	
+- [Model: scikit-learn](../code/23-case-duke-sklearn-c.ipynb)	
 ```
 
 
