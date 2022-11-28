@@ -18,7 +18,10 @@
 (participate)=
 ## Participate
 
-[Case study duke (Nr. 23)](../code/23-case-duke.md) 
+Code: [Case study duke (Nr. 23)](../code/23-case-duke.md) 
+
+
+Slides: [R squared](../_static/slides/r_squared.pdf)
 
 <!--
 Code: 
