@@ -1,6 +1,6 @@
 # Overview
 
-This section contains the weekly course materials and is structured as follows:
+This section contains the weekly course materials.
 
 ---
 
