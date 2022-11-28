@@ -32,3 +32,4 @@ For a semester overview, take a look at the [course-overview](../docs/course-ove
 |	7	|	20	|	21.11.	|	Data preprocessing overview	|		|		|		|		|		|	
 |	7	|	21	|	21.11.	|	Sales prediction example part 1	|		|		|		|		|		|	
 |	7	|	22	|	21.11.	|	Sales prediction example part 2	|		|		|		|		|		|	
+|	8	|	23	|	28.11.	|	ML case study	|	[📚](../weeks/week8.md)	|		|		|		|		|	
