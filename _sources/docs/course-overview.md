@@ -20,13 +20,13 @@ For a more detailed semester overview, take a look at the [course-schedule](../d
 |	5	|	07.11.	|	Text Mining	|	 - 	|	[📁](../weeks/week5.md)	|	
 |	6	|	14.11.	|	Regression I	|	[📑](https://drive.google.com/file/d/1-ZfUfZ671sAIsGPhKhvPfG9_mpgOXuro/view?usp=sharing)	|	[📁](../weeks/week6.md)	|	
 |	7	|	21.11.	|	Regression II	|	[📑](https://drive.google.com/file/d/1-cGm0I8N0sVjoLRFJrz-4t15PlR_Qy_4/view?usp=sharing)	|	[📁](../weeks/week7.md)	|	
-|	8	|	28.11.	|	ML case study 	|	 - 	|	[📁](../weeks/week8.md)	|	
-|	9	|	05.12.	|	Classification	|		|		|	
-|	10	|	12.12.	|	Random Forest	|		|		|	
-|	11	|	19.12.	|	Boosted Tree	|		|		|	
-|	12	|	09.01.	|	Deep learning	|		|		|	
-|	13	|	16.01.	|	NLP	|		|		|	
-|	14	|	23.01.	|	Computer vision	|		|		|			
+|	8	|	28.11.	|	ML case study Duke	|	[📑](https://docs.google.com/presentation/d/1ZIijR7F877M9peDH2rhb3IO7dP6JGDd1ypz_C2pAyGI/export/pdf)	|	[📁](../weeks/week8.md)	|	
+|	9	|	05.12.	|	ML Case study CA housing	|	 - 	|	[📁](../weeks/week9.md)	|	
+|	10	|	12.12.	|	Classification	|		|		|	
+|	11	|	19.12.	|	Random Forest	|		|		|	
+|	12	|	09.01.	|	Boosted Tree	|		|		|	
+|	13	|	16.01.	|	Deep learning	|		|		|	
+|	14	|	23.01.	|	Deep learning	|		|		|			
 
 ---
 
