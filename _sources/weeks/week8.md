@@ -6,7 +6,7 @@
 (prepare)=
 ## Prepare
 
-[📚 Hands on ML Project](https://e-learning.hdm-stuttgart.de/moodle/pluginfile.php/430259/mod_resource/content/0/Hands%20on%20Machine%20Learning%2C%20project.pdf)
+📚 [Case study duke (Nr. 23)](../code/23-case-duke.md) 
 
 
 ---
@@ -15,9 +15,10 @@
 ## Participate
 
 
-Code: 
+Code: [Case study duke (Nr. 23)](../code/23-case-duke.md) 
 
-[ML project housing](../code/25-case-ca-housing-c.ipynb)
+
+Slides: [📑 R squared (Nr. 24) ](https://docs.google.com/presentation/d/1ZIijR7F877M9peDH2rhb3IO7dP6JGDd1ypz_C2pAyGI/export/pdf)
 
 
 ---
