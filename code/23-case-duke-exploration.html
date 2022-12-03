@@ -552,16 +552,16 @@ title="Print to PDF"
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span> 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%matplotlib inline
+import pandas as pd
+import numpy as np
+import seaborn as sns 
+import matplotlib.pyplot as plt
 
-<span class="kn">from</span> <span class="nn">statsmodels.stats.outliers_influence</span> <span class="kn">import</span> <span class="n">variance_inflation_factor</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tools.tools</span> <span class="kn">import</span> <span class="n">add_constant</span>  
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+from statsmodels.tools.tools import add_constant  
 
-<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
+sns.set_theme()
 </pre></div>
 </div>
 </div>
@@ -571,10 +571,10 @@ title="Print to PDF"
 <h2>Import data<a class="headerlink" href="#import-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ROOT</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/kirenz/modern-statistics/main/data/&quot;</span>
-<span class="n">DATA</span> <span class="o">=</span> <span class="s2">&quot;duke-forest.csv&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ROOT = &quot;https://raw.githubusercontent.com/kirenz/modern-statistics/main/data/&quot;
+DATA = &quot;duke-forest.csv&quot;
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ROOT</span> <span class="o">+</span> <span class="n">DATA</span><span class="p">)</span>
+df = pd.read_csv(ROOT + DATA)
 </pre></div>
 </div>
 </div>
@@ -584,7 +584,7 @@ title="Print to PDF"
 <h2>Data inspection<a class="headerlink" href="#data-inspection" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df
 </pre></div>
 </div>
 </div>
@@ -806,7 +806,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.info()
 </pre></div>
 </div>
 </div>
@@ -837,11 +837,11 @@ memory usage: 10.1+ KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show missing values (missing values - if present - will be displayed in yellow)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">(),</span> 
-            <span class="n">yticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-            <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
-            <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># show missing values (missing values - if present - will be displayed in yellow)
+sns.heatmap(df.isnull(), 
+            yticklabels=False,
+            cbar=False, 
+            cmap=&#39;viridis&#39;);
 </pre></div>
 </div>
 </div>
@@ -851,7 +851,7 @@ memory usage: 10.1+ KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(df.isnull().sum())
 </pre></div>
 </div>
 </div>
@@ -879,26 +879,26 @@ dtype: int64
 <h2>Data transformation<a class="headerlink" href="#data-transformation" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># drop column with too many missing values</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;hoa&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># drop column with too many missing values
+df = df.drop([&#39;hoa&#39;], axis=1)
 
-<span class="c1"># drop remaining row with one missing value</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+# drop remaining row with one missing value
+df = df.dropna()
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop irrelevant features</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Drop irrelevant features
+df = df.drop([&#39;url&#39;, &#39;address&#39;], axis=1)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(df.isnull().sum())
 </pre></div>
 </div>
 </div>
@@ -920,18 +920,18 @@ dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert data types</span>
-<span class="n">categorical_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;heating&#39;</span><span class="p">,</span> <span class="s1">&#39;cooling&#39;</span><span class="p">,</span> <span class="s1">&#39;parking&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Convert data types
+categorical_list = [&#39;type&#39;, &#39;heating&#39;, &#39;cooling&#39;, &#39;parking&#39;]
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">categorical_list</span><span class="p">:</span>
-    <span class="n">df</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+for i in categorical_list:
+    df[i] = df[i].astype(&quot;category&quot;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.info()
 </pre></div>
 </div>
 </div>
@@ -959,8 +959,8 @@ memory usage: 7.3 KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># summary statistics for all categorical columns</span>
-<span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># summary statistics for all categorical columns
+df.describe(include=[&#39;category&#39;]).transpose()
 </pre></div>
 </div>
 </div>
@@ -1028,8 +1028,8 @@ memory usage: 7.3 KB
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;heating&#39;</span><span class="p">,</span> <span class="s1">&#39;parking&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = df.drop([&#39;type&#39;, &#39;heating&#39;, &#39;parking&#39;], axis=1)
+df
 </pre></div>
 </div>
 </div>
@@ -1182,10 +1182,10 @@ memory usage: 7.3 KB
 <h2>Data splitting<a class="headerlink" href="#data-splitting" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_dataset</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">test_dataset</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">train_dataset</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>train_dataset = df.sample(frac=0.8, random_state=0)
+test_dataset = df.drop(train_dataset.index)
 
-<span class="n">train_dataset</span>
+train_dataset
 </pre></div>
 </div>
 </div>
@@ -1338,8 +1338,8 @@ memory usage: 7.3 KB
 <h2>Exploratory data analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># summary statistics for all numerical columns</span>
-<span class="nb">round</span><span class="p">(</span><span class="n">train_dataset</span><span class="o">.</span><span class="n">describe</span><span class="p">(),</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># summary statistics for all numerical columns
+round(train_dataset.describe(),2).transpose()
 </pre></div>
 </div>
 </div>
@@ -1445,7 +1445,7 @@ memory usage: 7.3 KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sns.pairplot(train_dataset);
 </pre></div>
 </div>
 </div>
@@ -1458,9 +1458,9 @@ memory usage: 7.3 KB
 <h2>Correlation analysis<a class="headerlink" href="#correlation-analysis" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create correlation matrix for numerical variables</span>
-<span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
-<span class="n">corr_matrix</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Create correlation matrix for numerical variables
+corr_matrix = train_dataset.corr()
+corr_matrix
 </pre></div>
 </div>
 </div>
@@ -1552,8 +1552,8 @@ memory usage: 7.3 KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simple heatmap</span>
-<span class="n">heatmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Simple heatmap
+heatmap = sns.heatmap(corr_matrix)
 </pre></div>
 </div>
 </div>
@@ -1563,27 +1563,27 @@ memory usage: 7.3 KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a pretty heatmap</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Make a pretty heatmap
 
-<span class="c1"># Use a mask to plot only part of a matrix</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">)</span>
-<span class="n">mask</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">triu_indices_from</span><span class="p">(</span><span class="n">mask</span><span class="p">)]</span><span class="o">=</span> <span class="kc">True</span>
+# Use a mask to plot only part of a matrix
+mask = np.zeros_like(corr_matrix)
+mask[np.triu_indices_from(mask)]= True
 
-<span class="c1"># Change size</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+# Change size
+plt.subplots(figsize=(11, 15))
 
-<span class="c1"># Build heatmap with additional options</span>
-<span class="n">heatmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">,</span> 
-                      <span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span><span class="p">,</span> 
-                      <span class="n">square</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
-                      <span class="n">linewidths</span> <span class="o">=</span> <span class="mf">.5</span><span class="p">,</span>
-                      <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span>
-                      <span class="n">cbar_kws</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;shrink&#39;</span><span class="p">:</span> <span class="mf">.6</span><span class="p">,</span>
-                                <span class="s1">&#39;ticks&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]},</span>
-                      <span class="n">vmin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-                      <span class="n">vmax</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-                      <span class="n">annot</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-                      <span class="n">annot_kws</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
+# Build heatmap with additional options
+heatmap = sns.heatmap(corr_matrix, 
+                      mask = mask, 
+                      square = True, 
+                      linewidths = .5,
+                      cmap = &#39;coolwarm&#39;,
+                      cbar_kws = {&#39;shrink&#39;: .6,
+                                &#39;ticks&#39; : [-1, -.5, 0, 0.5, 1]},
+                      vmin = -1,
+                      vmax = 1,
+                      annot = True,
+                      annot_kws = {&quot;size&quot;: 10})
 </pre></div>
 </div>
 </div>
@@ -1600,16 +1600,16 @@ memory usage: 7.3 KB
 <p>Note that the function <code class="docutils literal notranslate"><span class="pre">variance_inflation_factor</span></code> expects the presence of a constant in the matrix of explanatory variables. Therefore, we use <code class="docutils literal notranslate"><span class="pre">add_constant</span></code> from statsmodels to add the required constant to the dataframe before passing its values to the function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># choose features and add constant</span>
-<span class="n">features</span> <span class="o">=</span> <span class="n">add_constant</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;bed&#39;</span><span class="p">,</span> <span class="s1">&#39;bath&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;lot&#39;</span><span class="p">]])</span>
-<span class="c1"># create empty DataFrame</span>
-<span class="n">vif</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="c1"># calculate vif</span>
-<span class="n">vif</span><span class="p">[</span><span class="s2">&quot;VIF Factor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">variance_inflation_factor</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
-<span class="c1"># add feature names</span>
-<span class="n">vif</span><span class="p">[</span><span class="s2">&quot;Feature&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">columns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># choose features and add constant
+features = add_constant(df[[&#39;bed&#39;, &#39;bath&#39;, &#39;area&#39;, &#39;lot&#39;]])
+# create empty DataFrame
+vif = pd.DataFrame()
+# calculate vif
+vif[&quot;VIF Factor&quot;] = [variance_inflation_factor(features.values, i) for i in range(features.shape[1])]
+# add feature names
+vif[&quot;Feature&quot;] = features.columns
 
-<span class="n">vif</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+vif.round(2)
 </pre></div>
 </div>
 </div>

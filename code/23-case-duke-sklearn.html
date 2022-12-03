@@ -572,30 +572,30 @@ title="Print to PDF"
 <h1>Data preparation<a class="headerlink" href="#data-preparation" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
 
-<span class="n">ROOT</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/kirenz/modern-statistics/main/data/&quot;</span>
-<span class="n">DATA</span> <span class="o">=</span> <span class="s2">&quot;duke-forest.csv&quot;</span>
+ROOT = &quot;https://raw.githubusercontent.com/kirenz/modern-statistics/main/data/&quot;
+DATA = &quot;duke-forest.csv&quot;
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ROOT</span> <span class="o">+</span> <span class="n">DATA</span><span class="p">)</span>
+df = pd.read_csv(ROOT + DATA)
 
-<span class="c1"># drop column with too many missing values</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;hoa&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+# drop column with too many missing values
+df = df.drop([&#39;hoa&#39;], axis=1)
 
-<span class="c1"># drop remaining row with one missing value</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+# drop remaining row with one missing value
+df = df.dropna()
 
-<span class="c1"># Drop irrelevant features</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+# Drop irrelevant features
+df = df.drop([&#39;url&#39;, &#39;address&#39;], axis=1)
 
-<span class="c1"># Convert data types</span>
-<span class="n">categorical_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;heating&#39;</span><span class="p">,</span> <span class="s1">&#39;cooling&#39;</span><span class="p">,</span> <span class="s1">&#39;parking&#39;</span><span class="p">]</span>
+# Convert data types
+categorical_list = [&#39;type&#39;, &#39;heating&#39;, &#39;cooling&#39;, &#39;parking&#39;]
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">categorical_list</span><span class="p">:</span>
-    <span class="n">df</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+for i in categorical_list:
+    df[i] = df[i].astype(&quot;category&quot;)
 
-<span class="c1"># drop irrelavant columns</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;heating&#39;</span><span class="p">,</span> <span class="s1">&#39;parking&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+# drop irrelavant columns
+df = df.drop([&#39;type&#39;, &#39;heating&#39;, &#39;parking&#39;], axis=1)
 </pre></div>
 </div>
 </div>
@@ -604,46 +604,46 @@ title="Print to PDF"
 <h2>Data preprocessing pipeline<a class="headerlink" href="#data-preprocessing-pipeline" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modules</span>
-<span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">ColumnTransformer</span>
-<span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">make_column_selector</span> <span class="k">as</span> <span class="n">selector</span>
-<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">set_config</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">OneHotEncoder</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Modules
+from sklearn.compose import ColumnTransformer
+from sklearn.compose import make_column_selector as selector
+from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
+from sklearn import set_config
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for numeric features</span>
-<span class="n">numeric_transformer</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[</span>
-    <span class="p">(</span><span class="s1">&#39;imputer&#39;</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">)),</span>
-    <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">())</span>
-    <span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># for numeric features
+numeric_transformer = Pipeline(steps=[
+    (&#39;imputer&#39;, SimpleImputer(strategy=&#39;median&#39;)),
+    (&#39;scaler&#39;, StandardScaler())
+    ])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for categorical features  </span>
-<span class="n">categorical_transformer</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[</span>
-    <span class="p">(</span><span class="s1">&#39;imputer&#39;</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="s1">&#39;missing&#39;</span><span class="p">)),</span>
-    <span class="p">(</span><span class="s1">&#39;onehot&#39;</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">))</span>
-    <span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># for categorical features  
+categorical_transformer = Pipeline(steps=[
+    (&#39;imputer&#39;, SimpleImputer(strategy=&#39;constant&#39;, fill_value=&#39;missing&#39;)),
+    (&#39;onehot&#39;, OneHotEncoder(handle_unknown=&#39;ignore&#39;))
+    ])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pipeline</span>
-<span class="n">preprocessor</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">(</span><span class="n">transformers</span><span class="o">=</span><span class="p">[</span>
-    <span class="p">(</span><span class="s1">&#39;num&#39;</span><span class="p">,</span> <span class="n">numeric_transformer</span><span class="p">,</span> <span class="n">selector</span><span class="p">(</span><span class="n">dtype_exclude</span><span class="o">=</span><span class="s2">&quot;category&quot;</span><span class="p">)),</span>
-    <span class="p">(</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="n">categorical_transformer</span><span class="p">,</span> <span class="n">selector</span><span class="p">(</span><span class="n">dtype_include</span><span class="o">=</span><span class="s2">&quot;category&quot;</span><span class="p">))</span>
-        <span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Pipeline
+preprocessor = ColumnTransformer(transformers=[
+    (&#39;num&#39;, numeric_transformer, selector(dtype_exclude=&quot;category&quot;)),
+    (&#39;cat&#39;, categorical_transformer, selector(dtype_include=&quot;category&quot;))
+        ])
 </pre></div>
 </div>
 </div>
@@ -654,20 +654,20 @@ title="Print to PDF"
 <h1>Simple regression<a class="headerlink" href="#simple-regression" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select features for simple regression</span>
-<span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Select features for simple regression
+features = [&#39;area&#39;]
+X = df[features]
 
-<span class="c1"># Create response</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;price&quot;</span><span class="p">]</span>
+# Create response
+y = df[&quot;price&quot;]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check feature</span>
-<span class="n">X</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># check feature
+X.info()
 </pre></div>
 </div>
 </div>
@@ -686,8 +686,8 @@ memory usage: 1.5 KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check label</span>
-<span class="n">y</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># check label
+y
 </pre></div>
 </div>
 </div>
@@ -710,10 +710,10 @@ Name: price, Length: 97, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check for missing values</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Missing values X:&quot;</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># check for missing values
+print(&quot;Missing values X:&quot;,X.isnull().any(axis=1).sum())
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Missing values Y:&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+print(&quot;Missing values Y:&quot;,y.isnull().sum())
 </pre></div>
 </div>
 </div>
@@ -728,11 +728,11 @@ Missing values Y: 0
 <h2>Data splitting<a class="headerlink" href="#data-splitting" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.model_selection import train_test_split
 
-<span class="c1"># Train Test Split</span>
-<span class="c1"># Use random_state to make this notebook&#39;s output identical at every run</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+# Train Test Split
+# Use random_state to make this notebook&#39;s output identical at every run
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 </pre></div>
 </div>
 </div>
@@ -742,23 +742,23 @@ Missing values Y: 0
 <h2>Modeling<a class="headerlink" href="#modeling" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.linear_model import LinearRegression
 
-<span class="c1"># Create pipeline with model</span>
-<span class="n">lm_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[</span>
-    <span class="p">(</span><span class="s1">&#39;preprocessor&#39;</span><span class="p">,</span> <span class="n">preprocessor</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;lm&#39;</span><span class="p">,</span> <span class="n">LinearRegression</span><span class="p">())</span>
-                        <span class="p">])</span>
+# Create pipeline with model
+lm_pipe = Pipeline(steps=[
+    (&#39;preprocessor&#39;, preprocessor),
+    (&#39;lm&#39;, LinearRegression())
+                        ])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show pipeline</span>
-<span class="n">set_config</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="s2">&quot;diagram&quot;</span><span class="p">)</span>
-<span class="c1"># Fit model</span>
-<span class="n">lm_pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># show pipeline
+set_config(display=&quot;diagram&quot;)
+# Fit model
+lm_pipe.fit(X_train, y_train)
 </pre></div>
 </div>
 </div>
@@ -806,8 +806,8 @@ Missing values Y: 0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain model coefficients</span>
-<span class="n">lm_pipe</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;lm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">coef_</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Obtain model coefficients
+lm_pipe.named_steps[&#39;lm&#39;].coef_
 </pre></div>
 </div>
 </div>
@@ -823,7 +823,7 @@ Missing values Y: 0
 <p>There are various options to evaluate a model in scikit-learn. Review this overview about <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html">metrics and scoring: quantifying the quality of predictions</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>X_train.head()
 </pre></div>
 </div>
 </div>
@@ -876,16 +876,16 @@ Missing values Y: 0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">lm_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>y_pred = lm_pipe.predict(X_train)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.metrics import r2_score
 
-<span class="n">r2_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>  
+r2_score(y_train, y_pred)  
 </pre></div>
 </div>
 </div>
@@ -897,9 +897,9 @@ Missing values Y: 0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.metrics import mean_squared_error
 
-<span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+mean_squared_error(y_train, y_pred)
 </pre></div>
 </div>
 </div>
@@ -911,8 +911,8 @@ Missing values Y: 0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># RMSE</span>
-<span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># RMSE
+mean_squared_error(y_train, y_pred, squared=False)
 </pre></div>
 </div>
 </div>
@@ -924,9 +924,9 @@ Missing values Y: 0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_error</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.metrics import mean_absolute_error
 
-<span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+mean_absolute_error(y_train, y_pred)
 </pre></div>
 </div>
 </div>
@@ -938,16 +938,16 @@ Missing values Y: 0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span> 
-<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%matplotlib inline
+import seaborn as sns 
+sns.set_theme(style=&quot;ticks&quot;)
 
-<span class="c1"># Plot with Seaborn</span>
+# Plot with Seaborn
 
-<span class="c1"># We first need to create a DataFrame</span>
-<span class="n">df_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">],</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="n">y_train</span><span class="p">})</span>
+# We first need to create a DataFrame
+df_train = pd.DataFrame({&#39;x&#39;: X_train[&#39;area&#39;], &#39;y&#39;:y_train})
 
-<span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_train</span><span class="p">,</span> <span class="n">line_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;darkred&#39;</span><span class="p">},</span> <span class="n">ci</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+sns.lmplot(x=&#39;x&#39;, y=&#39;y&#39;, data=df_train, line_kws={&#39;color&#39;: &#39;darkred&#39;}, ci=False);
 </pre></div>
 </div>
 </div>
@@ -957,15 +957,15 @@ Missing values Y: 0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.io</span> <span class="k">as</span> <span class="nn">pio</span>
-<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
-<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import plotly.io as pio
+import plotly.offline as py
+import plotly.express as px
 
-<span class="c1"># Plot with Plotly Express</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.65</span><span class="p">,</span> 
-                <span class="n">trendline</span><span class="o">=</span><span class="s1">&#39;ols&#39;</span><span class="p">,</span> <span class="n">trendline_color_override</span><span class="o">=</span><span class="s1">&#39;darkred&#39;</span><span class="p">);</span>
+# Plot with Plotly Express
+fig = px.scatter(x=X_train[&#39;area&#39;], y=y_train, opacity=0.65, 
+                trendline=&#39;ols&#39;, trendline_color_override=&#39;darkred&#39;);
 
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+fig.show()
 </pre></div>
 </div>
 </div>
@@ -974,7 +974,7 @@ Missing values Y: 0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">residplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">});</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sns.residplot(x=y_pred, y=y_train, scatter_kws={&quot;s&quot;: 80});
 </pre></div>
 </div>
 </div>
@@ -985,18 +985,18 @@ Missing values Y: 0
 <p>Let’s take a look at the wrongest predictions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create dataframe</span>
-<span class="n">df_error</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">y_train</span><span class="p">,</span>
-      <span class="s2">&quot;y_pred&quot;</span><span class="p">:</span> <span class="n">y_pred</span><span class="p">,</span>
-      <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="n">y_pred</span> <span class="o">-</span> <span class="n">y_train</span>
-    <span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># create dataframe
+df_error = pd.DataFrame(
+    { &quot;y&quot;: y_train,
+      &quot;y_pred&quot;: y_pred,
+      &quot;error&quot;: y_pred - y_train
+    })
 
-<span class="c1"># sort by error, select top 10 and get index</span>
-<span class="n">error_index</span> <span class="o">=</span> <span class="n">df_error</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;error&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span>
+# sort by error, select top 10 and get index
+error_index = df_error.sort_values(by=[&#39;error&#39;]).nlargest(10, &#39;error&#39;).index
 
-<span class="c1"># show corresponding data observations</span>
-<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">error_index</span><span class="p">]</span>
+# show corresponding data observations
+df.iloc[error_index]
 </pre></div>
 </div>
 </div>
@@ -1138,16 +1138,16 @@ Missing values Y: 0
 <h2>Evaluation with test data<a class="headerlink" href="#evaluation-with-test-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">lm_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>y_pred = lm_pipe.predict(X_test)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MSE:&#39;</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&#39;MSE:&#39;, mean_squared_error(y_test, y_pred))
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RMSE:&#39;</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+print(&#39;RMSE:&#39;, mean_squared_error(y_test, y_pred, squared=False))
 </pre></div>
 </div>
 </div>
@@ -1160,11 +1160,11 @@ RMSE: 152347.7138557575
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot with Plotly Express</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.65</span><span class="p">,</span> 
-                <span class="n">trendline</span><span class="o">=</span><span class="s1">&#39;ols&#39;</span><span class="p">,</span> <span class="n">trendline_color_override</span><span class="o">=</span><span class="s1">&#39;darkred&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Plot with Plotly Express
+fig = px.scatter(x=X_test[&#39;area&#39;], y=y_test, opacity=0.65, 
+                trendline=&#39;ols&#39;, trendline_color_override=&#39;darkred&#39;)
 
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+fig.show()
 </pre></div>
 </div>
 </div>
@@ -1174,17 +1174,17 @@ RMSE: 152347.7138557575
 <p>Model generalization on unseen data (see <a class="reference external" href="https://plotly.com/python/ml-regression/">plotly documentation</a>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import plotly.graph_objects as go
 
-<span class="n">x_range</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span> <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)})</span>
-<span class="n">y_range</span> <span class="o">=</span>  <span class="n">lm_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_range</span><span class="p">)</span>
+x_range = pd.DataFrame({ &#39;area&#39;: np.linspace(X_train[&#39;area&#39;].min(), X_train[&#39;area&#39;].max(), 100)})
+y_range =  lm_pipe.predict(x_range)
 
-<span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">([</span>
-    <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">),</span>
-    <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X_test</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">),</span>
-    <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_range</span><span class="o">.</span><span class="n">area</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_range</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;prediction&#39;</span><span class="p">)</span>
-<span class="p">])</span>
+go.Figure([
+    go.Scatter(x=X_train.squeeze(), y=y_train, name=&#39;train&#39;, mode=&#39;markers&#39;),
+    go.Scatter(x=X_test.squeeze(), y=y_test, name=&#39;test&#39;, mode=&#39;markers&#39;),
+    go.Scatter(x=x_range.area, y=y_range, name=&#39;prediction&#39;)
+])
 </pre></div>
 </div>
 </div>
@@ -1197,22 +1197,22 @@ RMSE: 152347.7138557575
 <h1>Multiple regression<a class="headerlink" href="#multiple-regression" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select features for multiple regression</span>
-<span class="n">features</span><span class="o">=</span> <span class="p">[</span>
- <span class="s1">&#39;bed&#39;</span><span class="p">,</span>
- <span class="s1">&#39;bath&#39;</span><span class="p">,</span>
- <span class="s1">&#39;area&#39;</span><span class="p">,</span>
- <span class="s1">&#39;year_built&#39;</span><span class="p">,</span>
- <span class="s1">&#39;cooling&#39;</span><span class="p">,</span>
- <span class="s1">&#39;lot&#39;</span>
-  <span class="p">]</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Select features for multiple regression
+features= [
+ &#39;bed&#39;,
+ &#39;bath&#39;,
+ &#39;area&#39;,
+ &#39;year_built&#39;,
+ &#39;cooling&#39;,
+ &#39;lot&#39;
+  ]
+X = df[features]
 
-<span class="n">X</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Missing values:&quot;</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+X.info()
+print(&quot;Missing values:&quot;,X.isnull().any(axis = 1).sum())
 
-<span class="c1"># Create response</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;price&quot;</span><span class="p">]</span>
+# Create response
+y = df[&quot;price&quot;]
 </pre></div>
 </div>
 </div>
@@ -1237,29 +1237,29 @@ Missing values: 0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data splitting</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Data splitting
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create pipeline with model</span>
-<span class="n">lm_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[</span>
-    <span class="p">(</span><span class="s1">&#39;preprocessor&#39;</span><span class="p">,</span> <span class="n">preprocessor</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;lm&#39;</span><span class="p">,</span> <span class="n">LinearRegression</span><span class="p">())</span>
-                        <span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Create pipeline with model
+lm_pipe = Pipeline(steps=[
+    (&#39;preprocessor&#39;, preprocessor),
+    (&#39;lm&#39;, LinearRegression())
+                        ])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show pipeline</span>
-<span class="n">set_config</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="s2">&quot;diagram&quot;</span><span class="p">)</span>
-<span class="c1"># Fit model</span>
-<span class="n">lm_pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># show pipeline
+set_config(display=&quot;diagram&quot;)
+# Fit model
+lm_pipe.fit(X_train, y_train)
 </pre></div>
 </div>
 </div>
@@ -1307,8 +1307,8 @@ Missing values: 0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain model coefficients</span>
-<span class="n">lm_pipe</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;lm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">coef_</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Obtain model coefficients
+lm_pipe.named_steps[&#39;lm&#39;].coef_
 </pre></div>
 </div>
 </div>
@@ -1322,14 +1322,14 @@ Missing values: 0
 <p>Evaluation with test data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">lm_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>y_pred = lm_pipe.predict(X_test)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>r2_score(y_test, y_pred)
 </pre></div>
 </div>
 </div>
