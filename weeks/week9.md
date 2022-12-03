@@ -1,4 +1,4 @@
-# Week 8
+# Week 9
 
 
 ---
@@ -15,9 +15,7 @@
 ## Participate
 
 
-Code: 
-
-[ML project housing](../code/25-case-ca-housing-c.ipynb)
+Code: [ 💻 ML project housing](../code/25-case-ca-housing-c.ipynb)
 
 
 ---
