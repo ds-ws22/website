@@ -21,7 +21,7 @@ For a semester overview, take a look at the [course-overview](../docs/course-ove
 |	4	|	9	|	31.10.	|	PostgreSQL	|		|		|		|		|		|	
 |	4	|	10	|	31.10.	|	APIs (Twitter and Google)	|		|		|		|		|		|	
 |	5	|	11	|	07.11.	|	Text Mining	|	[📚](../weeks/week5.md)	|	 - 	|	[💻](../weeks/week5.md)	|		|		|	
-|	5	|	12	|	07.11.	|	Sentiment analysis	|		|		|		|	[🖥 HW1](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=267036)	|		|	
+|	5	|	12	|	07.11.	|	Sentiment analysis	|		|	 - 	|		|	[🖥 HW1](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=267036)	|		|	
 |	6	|	13	|	14.11.	|	Sales and ads (models 1)	|	[📚](../weeks/week6.md)	|	[📑](https://drive.google.com/file/d/1-ZfUfZ671sAIsGPhKhvPfG9_mpgOXuro/view?usp=sharing)	|	[💻](../weeks/week6.md)	|		|		|	
 |	6	|	14	|	14.11.	|	Mean squared error 1 (models 2)	|		|		|	[💻](../weeks/week6.md)	|		|		|	
 |	6	|	15	|	14.11.	|	Mean squared error 2 (models 3)	|		|		|	[💻](../weeks/week6.md)	|		|		|	
@@ -32,4 +32,6 @@ For a semester overview, take a look at the [course-overview](../docs/course-ove
 |	7	|	20	|	21.11.	|	Data preprocessing overview	|		|		|		|		|		|	
 |	7	|	21	|	21.11.	|	Sales prediction example part 1	|		|		|		|		|		|	
 |	7	|	22	|	21.11.	|	Sales prediction example part 2	|		|		|		|		|		|	
-|	8	|	23	|	28.11.	|	ML case study	|	[📚](../weeks/week8.md)	|		|		|		|		|	
+|	8	|	23	|	28.11.	|	ML case study (Duke)	|	[📚](../weeks/week8.md)	|		|		|		|		|	
+|	8	|	24	|	28.11.	|	R squared	|		|	[📑](https://docs.google.com/presentation/d/1ZIijR7F877M9peDH2rhb3IO7dP6JGDd1ypz_C2pAyGI/export/pdf)	|		|		|		|	
+|	9	|	25	|	05.12.	|	ML case study (CA housing)	|	[📚](../weeks/week9.md)	|		|		|		|		|	
