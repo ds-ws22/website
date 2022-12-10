@@ -33,5 +33,8 @@ For a semester overview, take a look at the [course-overview](../docs/course-ove
 |	7	|	21	|	21.11.	|	Sales prediction example part 1	|		|		|		|		|		|	
 |	7	|	22	|	21.11.	|	Sales prediction example part 2	|		|		|		|		|		|	
 |	8	|	23	|	28.11.	|	ML case study (Duke)	|	[📚](../weeks/week8.md)	|		|		|		|		|	
-|	8	|	24	|	28.11.	|	R squared	|		|	[📑](https://docs.google.com/presentation/d/1ZIijR7F877M9peDH2rhb3IO7dP6JGDd1ypz_C2pAyGI/export/pdf)	|		|		|		|	
+|	8	|	24	|	28.11.	|	R squared	|		|		|		|		|		|	
 |	9	|	25	|	05.12.	|	ML case study (CA housing)	|	[📚](../weeks/week9.md)	|		|		|		|		|	
+|	10	|	25	|	12.12.	|	Classification	|	[📚](../weeks/week10.md)	|	[📑](https://drive.google.com/file/d/10OqatAw0GhYYQcRs3nkg5AON0v19d3L7/view?usp=sharing)	|		|		|		|	
+|	10	|	26	|	12.12.	|	Precision recall and F1 score	|		|		|		|		|		|	
+|	10	|	27	|	12.12.	|	ROC Curve and AUC	|		|		|		|		|		|	
