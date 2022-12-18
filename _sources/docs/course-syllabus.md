@@ -125,8 +125,8 @@ The final course grade will be calculated as follows:
 |-----------------------|-----------------|
 | Application exercises | 20%             |
 | Homework              | 30%             |
-| Exam 01               | 25%             |
-| Exam 02               | 25%             |
+| Exam 01               | 30%             |
+| Exam 02               | 20%             |
 
 The final grade will be determined based on the following thresholds:
 
