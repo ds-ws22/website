@@ -1,4 +1,4 @@
-# Week 11
+# Week 12
 
 
 ---
@@ -6,26 +6,17 @@
 (prepare)=
 ## Prepare
 
-[📚 Decision trees visual intro 1, nr. 29 ](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)
 
-[📚 Decision trees visual intro 2, nr. 30 ](http://www.r2d3.us/visual-intro-to-machine-learning-part-2/)
-
-[📚 Random forest algorithm, nr. 32 ](https://mlu-explain.github.io/random-forest/)
 
 ---
 
 (participate)=
 ## Participate
 
+- [34. Boosted trees (XGBoost)](../code/34-gradientboosting-xgboost.ipynb)
 
-Slides: [📑](https://drive.google.com/file/d/10ugq6FglzLn85wp3keqJuA4SEyXKgk4T/view?usp=sharing)
+- [35. Boosted trees in Scikit-learn](../code/35-gradientboosting.ipynb)
 
-
-Code: 
-
-[💻 31. Decision tree and random forest](../code/31-trees.ipynb)
-
-[💻 33. Random forest in scikit-learn](../code/33-random-forest.ipynb)
 
 ---
 
@@ -41,7 +32,14 @@ None
 (perform)=
 ## Perform
 
-None
+
+[Homework 2 (see Moodle)](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=267036)
+
+[Data](/_static/data/data-hw2.csv)
+
+[Data description](/_static/data/data-hw3-description.md)
+
+
 
 
 ---

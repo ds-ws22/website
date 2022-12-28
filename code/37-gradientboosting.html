@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Python Syntax &#8212; Data Science</title>
+    <title>Gradient Boosting in scikit-learn &#8212; Data Science</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,8 +53,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Python Semantics" href="programming-semantics.html" />
-    <link rel="prev" title="Fundamentals" href="programming-fundamentals.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -109,7 +107,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="course-overview.html">
+                <a class="reference internal" href="../docs/course-overview.html">
                     Course overview
                 </a>
             </li>
@@ -121,17 +119,17 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="course-schedule.html">
+  <a class="reference internal" href="../docs/course-schedule.html">
    Course schedule
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="course-syllabus.html">
+  <a class="reference internal" href="../docs/course-syllabus.html">
    Course syllabus
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="course-support.html">
+  <a class="reference internal" href="../docs/course-support.html">
    Course support
   </a>
  </li>
@@ -141,34 +139,34 @@ const thebe_selector_output = ".output, .cell_output"
   Programming
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="programming-toolkit.html">
+  <a class="reference internal" href="../docs/programming-toolkit.html">
    Programming toolkit
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="programming-environment.html">
+  <a class="reference internal" href="../docs/programming-environment.html">
    Anaconda environments
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="programming-fundamentals.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/programming-fundamentals.html">
    Fundamentals
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../docs/programming-syntax.html">
      Python Syntax
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="programming-semantics.html">
+    <a class="reference internal" href="../docs/programming-semantics.html">
      Python Semantics
     </a>
    </li>
@@ -312,7 +310,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://colab.research.google.com/github/orgs/ds-ws22/blob/main/docs/programming-syntax.ipynb"
+        <a href="https://colab.research.google.com/github/orgs/ds-ws22/blob/main/code/37-gradientboosting.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -372,7 +370,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/orgs/ds-ws22/repositories/issues/new?title=Issue%20on%20page%20%2Fdocs/programming-syntax.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/orgs/ds-ws22/repositories/issues/new?title=Issue%20on%20page%20%2Fcode/37-gradientboosting.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -400,7 +398,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/docs/programming-syntax.ipynb"
+        <a href="../_sources/code/37-gradientboosting.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -460,34 +458,43 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#comments">
-   Comments
+  <a class="reference internal nav-link" href="#setup">
+   Setup
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#statements">
-   Statements
+  <a class="reference internal nav-link" href="#data">
+   Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#indentation">
-   Indentation
+  <a class="reference internal nav-link" href="#model">
+   Model
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-training-test-deviance">
+     Plot training test deviance
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#whitespace-within-lines">
-   Whitespace within lines
+  <a class="reference internal nav-link" href="#feature-importance">
+   Feature importance
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#parentheses">
-   Parentheses
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#style-guides">
-   Style guides
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mean-decrease-in-impurity-mdi">
+     Mean decrease in impurity (MDI)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#permutation-feature-importance">
+     Permutation feature importance
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -498,7 +505,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Python Syntax</h1>
+                <h1>Gradient Boosting in scikit-learn</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -509,34 +516,43 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#comments">
-   Comments
+  <a class="reference internal nav-link" href="#setup">
+   Setup
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#statements">
-   Statements
+  <a class="reference internal nav-link" href="#data">
+   Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#indentation">
-   Indentation
+  <a class="reference internal nav-link" href="#model">
+   Model
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-training-test-deviance">
+     Plot training test deviance
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#whitespace-within-lines">
-   Whitespace within lines
+  <a class="reference internal nav-link" href="#feature-importance">
+   Feature importance
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#parentheses">
-   Parentheses
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#style-guides">
-   Style guides
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mean-decrease-in-impurity-mdi">
+     Mean decrease in impurity (MDI)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#permutation-feature-importance">
+     Permutation feature importance
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -548,273 +564,286 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="python-syntax">
-<h1>Python Syntax<a class="headerlink" href="#python-syntax" title="Permalink to this headline">#</a></h1>
-<p><em>This short tutorial is a very brief exploration of the essential features of Python syntax. It is mainly based on content from the App <a class="reference external" href="https://tinkerstellar.com">Tinkerstellar</a> by Alex Staravoitau and Jack VanderPlas’s <a class="reference external" href="https://jakevdp.github.io/WhirlwindTourOfPython/">Whirlwind Tour of Python</a>.</em></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="gradient-boosting-in-scikit-learn">
+<h1>Gradient Boosting in scikit-learn<a class="headerlink" href="#gradient-boosting-in-scikit-learn" title="Permalink to this headline">#</a></h1>
+<p>We illustrate the following regression method on a data set called “Hitters”, which includes 20 variables and 322 observations of major league baseball players. The goal is to predict a baseball player’s salary on the basis of various features associated with performance in the previous year. We don’t cover the topic of exploratory data analysis in this notebook.</p>
 <ul class="simple">
-<li><p>Syntax refers to the structure of the language (i.e., what constitutes a correctly-formed program).</p></li>
-<li><p>Here, we’ll not focus on the semantics – the meaning of the words and symbols within the syntax.</p></li>
+<li><p>Visit <a class="reference external" href="https://cran.r-project.org/web/packages/ISLR/ISLR.pdf">this documentation</a> if you want to learn more about the data</p></li>
 </ul>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># set the midpoint
-midpoint = 5
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pyplot as plt
+import numpy as np
 
-# make two empty lists
-lower = []
-upper = []
-
-# split the numbers into lower and upper
-for i in range(10):
-    if (i &lt; midpoint):
-        lower.append(i)
-    else:
-        upper.append(i)
-        
-print(&quot;lower:&quot;, lower)
-print(&quot;upper:&quot;, upper)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lower: [0, 1, 2, 3, 4]
-upper: [5, 6, 7, 8, 9]
-</pre></div>
-</div>
-</div>
-</div>
-<section id="comments">
-<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>Comments in Python are marked by #</p></li>
-<li><p>Anything on the line following the # sign is ignored by the interpreter</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># set the midpoint
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># below are examples of inline comments
-x = 1 # create a variable x and assign value 1
-x += 2  # shorthand for x = x + 2
-print(x) # print x
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.metrics import mean_squared_error
+from sklearn.inspection import permutation_importance
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="statements">
-<h2>Statements<a class="headerlink" href="#statements" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>End-of-line terminates a statement in Python</p></li>
-</ul>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>midpoint = 5
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>This is an assignment operation, where we’ve created a variable named midpoint and assigned it the value 5.</p></li>
-<li><p>Notice that the end of this statement is simply marked by the end of the line.</p></li>
-<li><p>If you’d like a statement to continue to the next line, it is possible to use the “&quot; marker to indicate this:</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = 1 + 2 + 3 + 4 +\
-    5 + 6 + 7 + 8
-print(x)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>It is also possible to continue expressions on the next line within parentheses:</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = (1 + 2 + 3 + 4 +
-     5 + 6 + 7 + 8)
-print(x)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>Most Python style guides recommend the second version of line continuation (within parentheses)</p></li>
-</ul>
-</section>
-<section id="indentation">
-<h2>Indentation<a class="headerlink" href="#indentation" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>A block of code is a set of statements that should be treated as a unit</p></li>
-<li><p>Code blocks are denoted by indentation (white space)</p></li>
-<li><p>The amount of whitespace used for indenting code blocks is up to the user, as long as it is consistent throughout the script</p></li>
-<li><p>By convention, most style guides recommend to indent code blocks by four spaces</p></li>
-<li><p>Indented code blocks are always preceded by a colon (:) on the previous line</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>midpoint = 5
-for i in range(10):
-    if i &lt; midpoint:
-        lower.append(i)
-    else:
-        upper.append(i)
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>In the snippet below, print(x) is in the indented block, and will be executed only if x is less than 4</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x=5
-if x &lt; 4:
-    y = x * 2
-    print(x)      
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>In the snippet below, print(x) is outside the block, and will be executed regardless of the value of x</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x=5
-if x &lt; 4:
-    y = x * 2
-print(x)      
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="whitespace-within-lines">
-<h2>Whitespace within lines<a class="headerlink" href="#whitespace-within-lines" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>White space within lines of Python code does not matter</p></li>
-<li><p>For example, all three of these expressions are equivalent</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a=1+2
-a = 1 + 2
-a   =   1   +   2
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 
-print(a)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+# Import
+df = pd.read_csv(&quot;https://raw.githubusercontent.com/kirenz/datasets/master/Hitters.csv&quot;)
+
+# drop missing cases
+df = df.dropna()
+
+# Create dummies
+dummies = pd.get_dummies(df[[&#39;League&#39;, &#39;Division&#39;,&#39;NewLeague&#39;]])
+
+# Create our label y:
+y = df[[&#39;Salary&#39;]]
+X_numerical = df.drop([&#39;Salary&#39;, &#39;League&#39;, &#39;Division&#39;, &#39;NewLeague&#39;], axis=1).astype(&#39;float64&#39;)
+
+# Make a list of all numerical features
+list_numerical = X_numerical.columns
+
+# Create all features
+X = pd.concat([X_numerical, dummies[[&#39;League_N&#39;, &#39;Division_W&#39;, &#39;NewLeague_N&#39;]]], axis=1)
+feature_names = X.columns
+
+# Split data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=10)
+
+# Data standardization
+scaler = StandardScaler().fit(X_train[list_numerical]) 
+
+X_train[list_numerical] = scaler.transform(X_train[list_numerical])
+X_test[list_numerical] = scaler.transform(X_test[list_numerical])
+
+# Make pandas dataframes
+df_train = y_train.join(X_train)
+df_test = y_test.join(X_test)
 </pre></div>
 </div>
 </div>
 </div>
 <ul class="simple">
-<li><p>Using whitespace effectively can lead to much more readable code</p></li>
+<li><p>Make contiguous flattened arrays (for our scikit-learn GradientBoostingRegressor):</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>b=10**-2
-
-b = 10 ** -2
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>y_train = np.ravel(y_train)
+y_test = np.ravel(y_test)
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="parentheses">
-<h2>Parentheses<a class="headerlink" href="#parentheses" title="Permalink to this headline">#</a></h2>
+<section id="model">
+<h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>Parentheses are used for grouping or calling</p></li>
-<li><p>They can be used in the typical way to group statements or mathematical operations:</p></li>
+<li><p>Define hyperparameters:</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>2 * (3 + 4)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>They can also be used to indicate that a function is being called.</p></li>
-<li><p>In the next snippet, the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function is used to display the contents of a variable.</p></li>
-<li><p>The function call is indicated by a pair of opening and closing parentheses, with the arguments to the function contained within:</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&#39;Value:&#39;, 1)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Value: 1
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>params = {
+    &quot;n_estimators&quot;: 500,
+    &quot;max_depth&quot;: 4,
+    &quot;min_samples_split&quot;: 5,
+    &quot;learning_rate&quot;: 0.01,
+    &quot;loss&quot;: &quot;squared_error&quot;,
+}
 </pre></div>
 </div>
 </div>
 </div>
 <ul class="simple">
-<li><p>Some functions can be called with no arguments at all, in which case the opening and closing parentheses still must be used to indicate a function evaluation.</p></li>
-<li><p>An example of this is the sort method of lists:</p></li>
+<li><p>Build and fit model</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For big datasets (n_samples &gt;= 10 000) the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingRegressor.html#sklearn.ensemble.HistGradientBoostingRegressor">Histogram-based Gradient Boosting Regression Tree</a> is much faster than <code class="docutils literal notranslate"><span class="pre">GradientBoostingRegressor</span></code></p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>L = [4,2,3,1]
-L.sort()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>reg = GradientBoostingRegressor(**params)
 
-print(L)
+reg.fit(X_train, y_train)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GradientBoostingRegressor(learning_rate=0.01, max_depth=4, min_samples_split=5,
+                          n_estimators=500)
 </pre></div>
 </div>
 </div>
 </div>
 <ul class="simple">
-<li><p>The “()” after sort indicates that the function should be executed, and is required even if no arguments are necessary.</p></li>
+<li><p>Make predictions</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>y_pred = reg.predict(X_test)
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Evaluate model with RMSE</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mean_squared_error(y_test, y_pred, squared=False)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>299.54054672905124
+</pre></div>
+</div>
+</div>
+</div>
+<section id="plot-training-test-deviance">
+<h3>Plot training test deviance<a class="headerlink" href="#plot-training-test-deviance" title="Permalink to this headline">#</a></h3>
+<p>Source: <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_gradient_boosting_regression.html#plot-training-deviance">scikit learn</a>, provided by Peter Prettenhofer, Maria Telenczuk and Katrina Ni:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>test_score = np.zeros((params[&quot;n_estimators&quot;],), dtype=np.float64)
+
+for i, y_pred in enumerate(reg.staged_predict(X_test)):
+    test_score[i] = reg.loss_(y_test, y_pred)
+
+fig = plt.figure(figsize=(6, 6))
+plt.subplot(1, 1, 1)
+plt.title(&quot;Deviance&quot;)
+plt.plot(
+    np.arange(params[&quot;n_estimators&quot;]) + 1,
+    reg.train_score_,
+    &quot;b-&quot;,
+    label=&quot;Training Set Deviance&quot;,
+)
+plt.plot(
+    np.arange(params[&quot;n_estimators&quot;]) + 1, test_score, &quot;r-&quot;, label=&quot;Test Set Deviance&quot;
+)
+plt.legend(loc=&quot;upper right&quot;)
+plt.xlabel(&quot;Boosting Iterations&quot;)
+plt.ylabel(&quot;Deviance&quot;)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/37-gradientboosting_18_0.png" src="../_images/37-gradientboosting_18_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="feature-importance">
+<h2>Feature importance<a class="headerlink" href="#feature-importance" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Next, we take a look at the tree based feature importance and the permutation importance.</p></li>
+</ul>
+<section id="mean-decrease-in-impurity-mdi">
+<h3>Mean decrease in impurity (MDI)<a class="headerlink" href="#mean-decrease-in-impurity-mdi" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Mean decrease in impurity (MDI) is a measure of feature importance for decision tree models.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Visit <a class="reference external" href="https://kirenz.github.io/feature-engineering/docs/mdi.html">this notebook</a> to learn more about MDI</p>
+</div>
+<ul class="simple">
+<li><p>Feature importances are provided by the fitted attribute <code class="docutils literal notranslate"><span class="pre">feature_importances_</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># obtain feature importance
+feature_importance = reg.feature_importances_
+
+# sort features according to importance
+sorted_idx = np.argsort(feature_importance)
+pos = np.arange(sorted_idx.shape[0])
+
+# plot feature importances
+plt.barh(pos, feature_importance[sorted_idx], align=&quot;center&quot;)
+
+plt.yticks(pos, np.array(feature_names)[sorted_idx])
+plt.title(&quot;Feature Importance (MDI)&quot;)
+plt.xlabel(&quot;Mean decrease in impurity&quot;);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/37-gradientboosting_21_0.png" src="../_images/37-gradientboosting_21_0.png" />
+</div>
+</div>
+</section>
+<section id="permutation-feature-importance">
+<h3>Permutation feature importance<a class="headerlink" href="#permutation-feature-importance" title="Permalink to this headline">#</a></h3>
+<p>The permutation feature importance is defined to be the decrease in a model score when a single feature value is randomly shuffled.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Visit <a class="reference external" href="https://kirenz.github.io/feature-engineering/docs/permutation-feature-importance.html">this notebook</a> to learn more about permutation feature importance.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>result = permutation_importance(
+    reg, X_test, y_test, n_repeats=10, random_state=42, n_jobs=2
+)
+
+tree_importances = pd.Series(result.importances_mean, index=feature_names)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># sort features according to importance
+sorted_idx = np.argsort(tree_importances)
+pos = np.arange(sorted_idx.shape[0])
+
+# plot feature importances
+plt.barh(pos, tree_importances[sorted_idx], align=&quot;center&quot;)
+
+plt.yticks(pos, np.array(feature_names)[sorted_idx])
+plt.title(&quot;Feature Importance (MDI)&quot;)
+plt.xlabel(&quot;Mean decrease in impurity&quot;);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/37-gradientboosting_24_0.png" src="../_images/37-gradientboosting_24_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Same data plotted as boxplot:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.boxplot(
+    result.importances[sorted_idx].T,
+    vert=False,
+    labels=np.array(feature_names)[sorted_idx],
+)
+
+plt.title(&quot;Permutation Importance (test set)&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Permutation Importance (test set)&#39;)
+</pre></div>
+</div>
+<img alt="../_images/37-gradientboosting_26_1.png" src="../_images/37-gradientboosting_26_1.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>We observe that the same features are detected as most important using both methods (e.g., <code class="docutils literal notranslate"><span class="pre">CAtBat</span></code>, <code class="docutils literal notranslate"><span class="pre">CRBI</span></code>, <code class="docutils literal notranslate"><span class="pre">CHits</span></code>, <code class="docutils literal notranslate"><span class="pre">Walks</span></code>, <code class="docutils literal notranslate"><span class="pre">Years</span></code>). Although the relative importances vary (especially for feature <code class="docutils literal notranslate"><span class="pre">Years</span></code>).</p></li>
 </ul>
 </section>
-<section id="style-guides">
-<h2>Style guides<a class="headerlink" href="#style-guides" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>The most widely used style guide in Python is known as PEP8, and can be found at <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">https://www.python.org/dev/peps/pep-0008/</a></p></li>
-</ul>
 </section>
 </section>
 
@@ -831,7 +860,7 @@ print(L)
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./docs"
+            path: "./code"
         },
         predefinedOutput: true
     }
@@ -845,20 +874,6 @@ print(L)
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="programming-fundamentals.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Fundamentals</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="programming-semantics.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Python Semantics</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>
