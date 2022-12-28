@@ -36,9 +36,9 @@ None
 
 [Homework 2 (see Moodle)](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=267036)
 
-[Data](/_static/data/data-hw2.csv)
+[Data](../_static/data/data-hw2.csv)
 
-[Data description](/_static/data/data-hw3-description.md)
+[Data description](../_static/data/data-hw3-description.md)
 
 
 
