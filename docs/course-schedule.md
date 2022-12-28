@@ -7,7 +7,6 @@ Note that this schedule will be updated as the semester progresses
 :::
 
 For a semester overview, take a look at the [course-overview](../docs/course-overview.md). 
-
 |	Week	|	Nr.	|	Date	|	Topic	|	Week overview	|	Slides	|	AE	|	HW	|	Exam	|
 |	---	|	---	|	---	|	---	|	---	|	---	|	---	|	---	|	---	|
 |	1	|	1	|	10.10.	|	Data Science	|	[📚](../weeks/week1.md)	|	[📑](https://drive.google.com/file/d/1-MhFzAXL9l0z1381-DaqW63GFWsw_epQ/view?usp=sharing)	|		|		|		|
@@ -43,3 +42,5 @@ For a semester overview, take a look at the [course-overview](../docs/course-ove
 |	11	|	31	|	19.12.	|	Decision tree and random forest	|		|		|		|		|		|
 |	11	|	32	|	19.12.	|	Random forest algorithm	|		|		|		|		|		|
 |	11	|	33	|	19.12.	|	Random forest in scikit-learn	|		|		|		|		|		|
+|	12	|	34	|	09.01.	|	Boosted trees (XGBoost)	|	[📚](../weeks/week12.md)	|	 - 	|		|	[🖥 HW2](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=270904)	|		|
+|	12	|	35	|	09.01.	|	Boosted trees in Scikit-learn	|		|		|		|		|		|
