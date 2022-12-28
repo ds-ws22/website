@@ -34,11 +34,11 @@ None
 ## Perform
 
 
-[Homework 2 (see Moodle)](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=267036)
+[Homework 2 (see Moodle)](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=270904)
 
-[Data](../_static/data/data-hw2.csv)
+[Data](https://github.com/ds-ws22/website/blob/main/_static/data/data-hw2.csv)
 
-[Data description](../_static/data/data-hw3-description.md)
+[Data description](https://github.com/ds-ws22/website/blob/main/_static/data/data-hw3-description.md)
 
 
 
