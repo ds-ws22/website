@@ -1,0 +1,1534 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>XGBoost &#8212; Data Science</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../docs/course-overview.html">
+                    Course overview
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course information
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/course-schedule.html">
+   Course schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/course-syllabus.html">
+   Course syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/course-support.html">
+   Course support
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Programming
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/programming-toolkit.html">
+   Programming toolkit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/programming-environment.html">
+   Anaconda environments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../docs/programming-fundamentals.html">
+   Fundamentals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../docs/programming-syntax.html">
+     Python Syntax
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../docs/programming-semantics.html">
+     Python Semantics
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Weekly materials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../weeks/weeks-overview.html">
+   Overview
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../weeks/week1.html">
+     Week 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../weeks/week2.html">
+     Week 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../weeks/week3.html">
+     Week 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../weeks/week4.html">
+     Week 4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../weeks/week5.html">
+     Week 5
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../weeks/week6.html">
+     Week 6
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../weeks/week7.html">
+     Week 7
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../weeks/week8.html">
+     Week 8
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../weeks/week9.html">
+     Week 9
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../weeks/week10.html">
+     Week 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../weeks/week11.html">
+     Week 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../weeks/week12.html">
+     Week 12
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://colab.research.google.com/github/orgs/ds-ws22/blob/main/code/34-xgboost.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/orgs/ds-ws22/repositories"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/orgs/ds-ws22/repositories/issues/new?title=Issue%20on%20page%20%2Fcode/34-xgboost.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/code/34-xgboost.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-import">
+     Data import
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-splitting">
+     Data splitting
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-building">
+   Model building
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hyperparameters">
+     Hyperparameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fit-model">
+     Fit model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#save-model">
+     Save model
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation">
+   Evaluation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coefficient-of-determination">
+     Coefficient of determination
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rmse">
+     RMSE
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#xgboost-functions">
+       XGBoost functions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#scikit-learn-functions">
+       Scikit-learn functions
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-test-deviance">
+     Train test deviance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualize-tree">
+     Visualize tree
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-importance">
+   Feature importance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Feature importance
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#permutation-feature-importance">
+   Permutation feature importance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cross-validation">
+   Cross-validation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hyperparameter-tuning">
+   Hyperparameter Tuning
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>XGBoost</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-import">
+     Data import
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-splitting">
+     Data splitting
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-building">
+   Model building
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hyperparameters">
+     Hyperparameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fit-model">
+     Fit model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#save-model">
+     Save model
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation">
+   Evaluation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coefficient-of-determination">
+     Coefficient of determination
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rmse">
+     RMSE
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#xgboost-functions">
+       XGBoost functions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#scikit-learn-functions">
+       Scikit-learn functions
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-test-deviance">
+     Train test deviance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualize-tree">
+     Visualize tree
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-importance">
+   Feature importance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Feature importance
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#permutation-feature-importance">
+   Permutation feature importance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cross-validation">
+   Cross-validation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hyperparameter-tuning">
+   Hyperparameter Tuning
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="xgboost">
+<h1>XGBoost<a class="headerlink" href="#xgboost" title="Permalink to this headline">#</a></h1>
+<p>XGBoost (eXtreme Gradient Boosting) is a <a class="reference external" href="https://xgboost.readthedocs.io/en/stable/">machine learning library</a> which implements supervised machine learning models under the Gradient <a class="reference external" href="https://en.wikipedia.org/wiki/Boosting_(machine_learning)">Boosting</a> framework.</p>
+<p>In this tutorial we’ll cover how to perform XGBoost regression in Python. We will focus on the following topics:</p>
+<ul class="simple">
+<li><p>How to define hyperparameters</p></li>
+<li><p>Model fitting and evaluating</p></li>
+<li><p>Obtain feature importance</p></li>
+<li><p>Perform cross-validation</p></li>
+<li><p>Hyperparameter tuning</p></li>
+</ul>
+<p>Install xgboost:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge py-xgboost
+</pre></div>
+</div>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%matplotlib inline
+
+import warnings
+warnings.simplefilter(action=&#39;ignore&#39;, category=FutureWarning)
+
+import numpy as np
+import pandas as pd
+from pandas import MultiIndex, Int64Index
+import matplotlib.pyplot as plt
+
+import xgboost as xgb
+print(&quot;XGB Version:&quot;, xgb.__version__)
+
+from sklearn import datasets
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+from sklearn.inspection import permutation_importance
+from sklearn.model_selection import GridSearchCV
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>XGB Version: 1.7.1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
+<p>We use data drawn from the 1990 U.S. Census to predict median house value for households within a block (see this <a class="reference external" href="https://developers.google.com/machine-learning/crash-course/california-housing-data-description">data description</a> for more information).</p>
+<section id="data-import">
+<h3>Data import<a class="headerlink" href="#data-import" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>X, y = datasets.fetch_california_housing(return_X_y=True, as_frame=True) 
+
+feature_names = X.columns
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>X.info()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 20640 entries, 0 to 20639
+Data columns (total 8 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   MedInc      20640 non-null  float64
+ 1   HouseAge    20640 non-null  float64
+ 2   AveRooms    20640 non-null  float64
+ 3   AveBedrms   20640 non-null  float64
+ 4   Population  20640 non-null  float64
+ 5   AveOccup    20640 non-null  float64
+ 6   Latitude    20640 non-null  float64
+ 7   Longitude   20640 non-null  float64
+dtypes: float64(8)
+memory usage: 1.3 MB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-splitting">
+<h3>Data splitting<a class="headerlink" href="#data-splitting" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=0)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="model-building">
+<h2>Model building<a class="headerlink" href="#model-building" title="Permalink to this headline">#</a></h2>
+<section id="hyperparameters">
+<h3>Hyperparameters<a class="headerlink" href="#hyperparameters" title="Permalink to this headline">#</a></h3>
+<p>XGBoost provides many hyperparameters but we will only consider a few of them (see the <a class="reference external" href="https://xgboost.readthedocs.io/en/latest/parameter.html#general-parameters">XGBoost documentation</a> for an complete overview).</p>
+<p>Note that we will use the <a class="reference external" href="https://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn">scikit-learn wrapper interface</a>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">objective</span></code>: determines the loss function to be used like <code class="docutils literal notranslate"><span class="pre">reg:squarederror</span></code> for regression problems, <code class="docutils literal notranslate"><span class="pre">binary:logistic</span></code> for logistic regression for binary classification or <code class="docutils literal notranslate"><span class="pre">multi:softmax</span></code>  to do multiclass classification using the softmax objectiv (note that there are more options).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_estimators</span></code>: Number of gradient boosted trees. Equivalent to number of boosting rounds.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_depth</span></code>: Maximum tree depth for base learners.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">learning_rate</span></code>: Boosting learning rate (xgb’s “eta”). Range is [0,1].</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subsample</span></code>: Subsample ratio of the training instance. Setting it to 0.5 means that XGBoost would randomly sample half of the training data prior to growing trees.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">colsample_bytree</span></code>: Subsample ratio of columns when constructing each tree. Subsampling occurs once for every tree constructed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">colsample_bylevel</span></code>: Subsample ratio of columns for each level. Subsampling occurs once for every new depth level reached in a tree. Columns are subsampled from the set of columns chosen for the current tree.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gamma</span></code>: Minimum loss reduction required to make a further partition on a leaf node of the tree. A higher value leads to fewer splits.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reg_alpha</span></code>: L1 regularization term on weights (xgb’s alpha). A large value leads to more regularization.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reg_lambda</span></code>: L2 regularization term on weights (xgb’s lambda).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eval_metric</span></code> (default is according to objective). Evaluation metrics for validation data, a default metric will be assigned according to objective (<code class="docutils literal notranslate"><span class="pre">rmse</span></code> for regression, and <code class="docutils literal notranslate"><span class="pre">logloss</span></code> for classificationestimator
+).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">random_state</span></code>: Random number seed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">early_stopping_rounds</span></code>: If you have a validation set, you can use early stopping to find the optimal number of boosting rounds. Early stopping requires at least one set in evals. If there’s more than one, it will use the last. Note that we include this parameter in our fit function.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Define hyperparameters as dictionary:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>params = {
+    &quot;objective&quot;: &quot;reg:squarederror&quot;,
+    &quot;n_estimators&quot;:100,
+    &quot;max_depth&quot;: 4,
+    &quot;learning_rate&quot;: 0.01,
+    &quot;subsample&quot;: 0.8,
+    &quot;colsample_bytree&quot;: 0.9,
+    &quot;colsample_bylevel&quot;: 0.8,
+    &quot;reg_lambda&quot;: 0.1,
+    &quot;eval_metric&quot;: &quot;rmse&quot;,
+    &quot;random_state&quot;: 42,
+}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fit-model">
+<h3>Fit model<a class="headerlink" href="#fit-model" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>reg = xgb.XGBRegressor(**params)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since we want to plot the learning curves for both training and test data, we need to provide both training and test data as <code class="docutils literal notranslate"><span class="pre">eval_set</span></code>. Furthermore, if you provide a validation set, you can use “early stopping” to find the optimal number of boosting rounds (early stopping requires at least one set in evals. If there’s more than one, it will use the last).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Early stoping: The model will train until the validation score stops improving. Validation error needs to decrease at least every <code class="docutils literal notranslate"><span class="pre">early_stopping_rounds</span></code> to continue training.</p>
+</div>
+<p>If early stopping occurs, the model will have two additional fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">reg.best_score</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reg.best_iteration</span></code></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Xgboost will always return a model from the last iteration, not the best one.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>reg.fit(X_train, 
+        y_train, 
+        verbose=False,
+        eval_set= [(X_train, y_train), (X_test, y_test)],
+        early_stopping_rounds= 3
+        )
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-2 {color: black;background-color: white;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>XGBRegressor(base_score=0.5, booster=&#x27;gbtree&#x27;, callbacks=None,
+             colsample_bylevel=0.8, colsample_bynode=1, colsample_bytree=0.9,
+             early_stopping_rounds=None, enable_categorical=False,
+             eval_metric=&#x27;rmse&#x27;, feature_types=None, gamma=0, gpu_id=-1,
+             grow_policy=&#x27;depthwise&#x27;, importance_type=None,
+             interaction_constraints=&#x27;&#x27;, learning_rate=0.01, max_bin=256,
+             max_cat_threshold=64, max_cat_to_onehot=4, max_delta_step=0,
+             max_depth=4, max_leaves=0, min_child_weight=1, missing=nan,
+             monotone_constraints=&#x27;()&#x27;, n_estimators=100, n_jobs=0,
+             num_parallel_tree=1, predictor=&#x27;auto&#x27;, random_state=42, ...)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">XGBRegressor</label><div class="sk-toggleable__content"><pre>XGBRegressor(base_score=0.5, booster=&#x27;gbtree&#x27;, callbacks=None,
+             colsample_bylevel=0.8, colsample_bynode=1, colsample_bytree=0.9,
+             early_stopping_rounds=None, enable_categorical=False,
+             eval_metric=&#x27;rmse&#x27;, feature_types=None, gamma=0, gpu_id=-1,
+             grow_policy=&#x27;depthwise&#x27;, importance_type=None,
+             interaction_constraints=&#x27;&#x27;, learning_rate=0.01, max_bin=256,
+             max_cat_threshold=64, max_cat_to_onehot=4, max_delta_step=0,
+             max_depth=4, max_leaves=0, min_child_weight=1, missing=nan,
+             monotone_constraints=&#x27;()&#x27;, n_estimators=100, n_jobs=0,
+             num_parallel_tree=1, predictor=&#x27;auto&#x27;, random_state=42, ...)</pre></div></div></div></div></div></div></div>
+</div>
+</section>
+<section id="save-model">
+<h3>Save model<a class="headerlink" href="#save-model" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Save the model into JSON format (optional)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#reg.save_model(&quot;regressor.json&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="evaluation">
+<h2>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Obtain all evaluation results:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>results = reg.evals_result()
+</pre></div>
+</div>
+</div>
+</div>
+<section id="coefficient-of-determination">
+<h3>Coefficient of determination<a class="headerlink" href="#coefficient-of-determination" title="Permalink to this headline">#</a></h3>
+<p>Return the coefficient of determination (<span class="math notranslate nohighlight">\(R^2\)</span>) of the prediction:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># for training data
+reg.score(X_train, y_train, sample_weight=None)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.30197816458883875
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># for test data
+reg.score(X_test, y_test, sample_weight=None)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.30315081477332295
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rmse">
+<h3>RMSE<a class="headerlink" href="#rmse" title="Permalink to this headline">#</a></h3>
+<section id="xgboost-functions">
+<h4>XGBoost functions<a class="headerlink" href="#xgboost-functions" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Show evaluation result (<code class="docutils literal notranslate"><span class="pre">rmse</span></code>) for our test data (<code class="docutils literal notranslate"><span class="pre">validation_1</span></code>) for the last model in the list (<code class="docutils literal notranslate"><span class="pre">-1</span></code>)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>results[&#39;validation_1&#39;][&#39;rmse&#39;][-1]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9786155477636489
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Next, we obtain our best iteration (this attribute is 0-based, for instance if the best iteration is the 100th round, then best_iteration is 99).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>best_iter = reg.best_iteration
+best_iter
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Show result for best iteration (in our case, the last iteration and best iteration are identical)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>results[&#39;validation_1&#39;][&#39;rmse&#39;][best_iter]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9786155477636489
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="scikit-learn-functions">
+<h4>Scikit-learn functions<a class="headerlink" href="#scikit-learn-functions" title="Permalink to this headline">#</a></h4>
+<p>Next, we use the scikit-learn workflow to obtain our evaluation metrics.</p>
+<ul class="simple">
+<li><p>Make predictions</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>y_pred = reg.predict(X_test)
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Obtain RMSE with skicit-learn function <code class="docutils literal notranslate"><span class="pre">mean_squared_error</span></code>:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mean_squared_error(y_test, y_pred, squared = False)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9786155477422379
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="train-test-deviance">
+<h3>Train test deviance<a class="headerlink" href="#train-test-deviance" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Plot training test deviance</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Prepare x-axis
+epochs = len(results[&#39;validation_0&#39;][&#39;rmse&#39;])
+x_axis = range(0, epochs)
+
+fig, ax = plt.subplots()
+
+ax.plot(x_axis, results[&#39;validation_0&#39;][&#39;rmse&#39;], label=&#39;Train&#39;)
+ax.plot(x_axis, results[&#39;validation_1&#39;][&#39;rmse&#39;], label=&#39;Test&#39;)
+
+plt.title(&#39;XGBoost RMSE&#39;)
+plt.xlabel(&quot;Boosting Iterations&quot;)
+plt.ylabel(&quot;RMSE Deviance&quot;)
+plt.legend(loc=&quot;upper right&quot;);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-xgboost_46_0.png" src="../_images/34-xgboost_46_0.png" />
+</div>
+</div>
+</section>
+<section id="visualize-tree">
+<h3>Visualize tree<a class="headerlink" href="#visualize-tree" title="Permalink to this headline">#</a></h3>
+<p>You need to install graphviz to plot the tree. For Anaconda, use</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge python-graphviz
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.rcParams[&#39;figure.figsize&#39;] = [50, 10]
+
+xgb.plot_tree(reg ,num_trees=0);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-xgboost_49_0.png" src="../_images/34-xgboost_49_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="feature-importance">
+<h2>Feature importance<a class="headerlink" href="#feature-importance" title="Permalink to this headline">#</a></h2>
+<p>Next, we take a look at the tree based feature importance and the permutation feature importance.</p>
+<section id="id1">
+<h3>Feature importance<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>Importance is calculated with either “weight”, “gain”, or “cover”</p>
+<ul class="simple">
+<li><p>”weight” is the number of times a feature appears in a tree</p></li>
+<li><p>”gain” is the average gain of splits which use the feature</p></li>
+<li><p>”cover” is the average coverage of splits which use the feature (where coverage is defined as the number of samples affected by the split)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>reg.feature_importances_
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.3636188 , 0.0625032 , 0.1681831 , 0.07790712, 0.01166479,
+       0.15469898, 0.08890024, 0.07252375], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Feature importances are provided by the function <code class="docutils literal notranslate"><span class="pre">plot_importance</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>xgb.plot_importance(reg, 
+                    importance_type=&quot;gain&quot;,
+                    show_values=False,
+                    xlabel=&quot;Gain&quot;);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-xgboost_56_0.png" src="../_images/34-xgboost_56_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Iterate over all options:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>feat_importance = [&quot;weight&quot;, &quot;gain&quot;, &quot;cover&quot;]
+
+for i in feat_importance:
+    xgb.plot_importance(reg, 
+                    importance_type=i,
+                    show_values=False,
+                    xlabel=i);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-xgboost_58_0.png" src="../_images/34-xgboost_58_0.png" />
+<img alt="../_images/34-xgboost_58_1.png" src="../_images/34-xgboost_58_1.png" />
+<img alt="../_images/34-xgboost_58_2.png" src="../_images/34-xgboost_58_2.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="permutation-feature-importance">
+<h2>Permutation feature importance<a class="headerlink" href="#permutation-feature-importance" title="Permalink to this headline">#</a></h2>
+<p>The permutation feature importance is defined to be the decrease in a model score when a single feature value is randomly shuffled.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Visit <a class="reference external" href="https://kirenz.github.io/feature-engineering/docs/permutation-feature-importance.html">this notebook</a> to learn more about permutation feature importance.</p>
+</div>
+<ul class="simple">
+<li><p>We will use the scikit-learn function <code class="docutils literal notranslate"><span class="pre">permutation_importance</span></code>:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>result = permutation_importance(
+    reg, X_test, y_test, n_repeats=10, random_state=42
+)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># make a pandas data series 
+tree_importances = pd.Series(result.importances_mean, index=feature_names)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># sort features according to importance
+sorted_idx = np.argsort(tree_importances)
+pos = np.arange(sorted_idx.shape[0])
+
+# plot feature importances
+plt.barh(pos, tree_importances[sorted_idx], align=&quot;center&quot;)
+
+plt.yticks(pos, np.array(feature_names)[sorted_idx])
+plt.title(&quot;Feature Importance (MDI)&quot;)
+plt.xlabel(&quot;Mean decrease in impurity&quot;);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-xgboost_64_0.png" src="../_images/34-xgboost_64_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Same data plotted as boxplot:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.boxplot(
+    result.importances[sorted_idx].T,
+    vert=False,
+    labels=np.array(feature_names)[sorted_idx],
+)
+
+plt.title(&quot;Permutation Importance (test set)&quot;)
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-xgboost_66_0.png" src="../_images/34-xgboost_66_0.png" />
+</div>
+</div>
+</section>
+<section id="cross-validation">
+<h2>Cross-validation<a class="headerlink" href="#cross-validation" title="Permalink to this headline">#</a></h2>
+<p>Next, we use k-fold cross validation to build even more robust trees.</p>
+<p>First, we will convert the dataset into an optimized data structure called Dmatrix.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dmatrix = xgb.DMatrix(data=X,label=y)
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>We use the same hyperparameteras as before.</p></li>
+<li><p>We just drop <code class="docutils literal notranslate"><span class="pre">num_estimators</span></code> and instead use <code class="docutils literal notranslate"><span class="pre">num_boost_round</span></code> in our fit.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>params_cv = {
+    &quot;objective&quot;: &quot;reg:squarederror&quot;,
+    &quot;max_depth&quot;: 4,
+    &quot;learning_rate&quot;: 0.01,
+    &quot;subsample&quot;: 0.8,
+    &quot;colsample_bytree&quot;: 0.9,
+    &quot;colsample_bylevel&quot;: 0.8,
+    &quot;reg_lambda&quot;: 0.1,
+    &quot;eval_metric&quot;: &quot;rmse&quot;,
+    &quot;random_state&quot;: 42,
+}
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Perform 3-fold-cross-validation:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>reg_cv = xgb.cv(dtrain=dmatrix, 
+                nfold=3,
+                params=params_cv,
+                num_boost_round=5,
+                early_stopping_rounds=10,
+                metrics=&quot;rmse&quot;, 
+                as_pandas=True, 
+                seed=123)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>reg_cv.head()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>train-rmse-mean</th>
+      <th>train-rmse-std</th>
+      <th>test-rmse-mean</th>
+      <th>test-rmse-std</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.930837</td>
+      <td>0.008074</td>
+      <td>1.930872</td>
+      <td>0.016105</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.914908</td>
+      <td>0.008166</td>
+      <td>1.914989</td>
+      <td>0.015754</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.898777</td>
+      <td>0.008120</td>
+      <td>1.898905</td>
+      <td>0.015531</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.882704</td>
+      <td>0.008067</td>
+      <td>1.882887</td>
+      <td>0.015338</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.866843</td>
+      <td>0.007958</td>
+      <td>1.867077</td>
+      <td>0.015233</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>Extract and print the final boosting round metric.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print((reg_cv[&quot;test-rmse-mean&quot;]).tail(1))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4    1.867077
+Name: test-rmse-mean, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="hyperparameter-tuning">
+<h2>Hyperparameter Tuning<a class="headerlink" href="#hyperparameter-tuning" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Let’s demonstrate hyperparameter tuning for some parameters:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>params = { &#39;max_depth&#39;: [3,6],
+           &#39;learning_rate&#39;: [0.01, 0.05],
+           &#39;n_estimators&#39;: [3, 5],
+           &#39;colsample_bytree&#39;: [0.3, 0.7]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>reg_h = xgb.XGBRegressor(seed = 42)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>reg_hyper = GridSearchCV(estimator=reg_h, 
+                   param_grid=params,
+                   scoring=&#39;neg_mean_squared_error&#39;, 
+                   verbose=1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This will take a while …</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>reg_hyper.fit(X_train, y_train)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 5 folds for each of 16 candidates, totalling 80 fits
+</pre></div>
+</div>
+<div class="output text_html"><style>#sk-container-id-3 {color: black;background-color: white;}#sk-container-id-3 pre{padding: 0;}#sk-container-id-3 div.sk-toggleable {background-color: white;}#sk-container-id-3 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-3 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-3 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-3 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-3 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-3 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-3 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-3 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-3 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-3 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-3 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-3 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-3 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-3 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-3 div.sk-item {position: relative;z-index: 1;}#sk-container-id-3 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-3 div.sk-item::before, #sk-container-id-3 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-3 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-3 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-3 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-3 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-3 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-3 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-3 div.sk-label-container {text-align: center;}#sk-container-id-3 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-3 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GridSearchCV(estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    feature_types=None, gamma=None, gpu_id=None,
+                                    grow_policy=None, importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bi...
+                                    max_cat_to_onehot=None, max_delta_step=None,
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None, ...),
+             param_grid={&#x27;colsample_bytree&#x27;: [0.3, 0.7],
+                         &#x27;learning_rate&#x27;: [0.01, 0.05], &#x27;max_depth&#x27;: [3, 6],
+                         &#x27;n_estimators&#x27;: [3, 5]},
+             scoring=&#x27;neg_mean_squared_error&#x27;, verbose=1)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" ><label for="sk-estimator-id-3" class="sk-toggleable__label sk-toggleable__label-arrow">GridSearchCV</label><div class="sk-toggleable__content"><pre>GridSearchCV(estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    feature_types=None, gamma=None, gpu_id=None,
+                                    grow_policy=None, importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bi...
+                                    max_cat_to_onehot=None, max_delta_step=None,
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None, ...),
+             param_grid={&#x27;colsample_bytree&#x27;: [0.3, 0.7],
+                         &#x27;learning_rate&#x27;: [0.01, 0.05], &#x27;max_depth&#x27;: [3, 6],
+                         &#x27;n_estimators&#x27;: [3, 5]},
+             scoring=&#x27;neg_mean_squared_error&#x27;, verbose=1)</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" ><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">estimator: XGBRegressor</label><div class="sk-toggleable__content"><pre>XGBRegressor(base_score=None, booster=None, callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=None, early_stopping_rounds=None,
+             enable_categorical=False, eval_metric=None, feature_types=None,
+             gamma=None, gpu_id=None, grow_policy=None, importance_type=None,
+             interaction_constraints=None, learning_rate=None, max_bin=None,
+             max_cat_threshold=None, max_cat_to_onehot=None,
+             max_delta_step=None, max_depth=None, max_leaves=None,
+             min_child_weight=None, missing=nan, monotone_constraints=None,
+             n_estimators=100, n_jobs=None, num_parallel_tree=None,
+             predictor=None, random_state=None, ...)</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" ><label for="sk-estimator-id-5" class="sk-toggleable__label sk-toggleable__label-arrow">XGBRegressor</label><div class="sk-toggleable__content"><pre>XGBRegressor(base_score=None, booster=None, callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=None, early_stopping_rounds=None,
+             enable_categorical=False, eval_metric=None, feature_types=None,
+             gamma=None, gpu_id=None, grow_policy=None, importance_type=None,
+             interaction_constraints=None, learning_rate=None, max_bin=None,
+             max_cat_threshold=None, max_cat_to_onehot=None,
+             max_delta_step=None, max_depth=None, max_leaves=None,
+             min_child_weight=None, missing=nan, monotone_constraints=None,
+             n_estimators=100, n_jobs=None, num_parallel_tree=None,
+             predictor=None, random_state=None, ...)</pre></div></div></div></div></div></div></div></div></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;Best parameters:&quot;, reg_hyper.best_params_)
+print(&quot;Lowest RMSE: &quot;, np.sqrt(-reg_hyper.best_score_))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best parameters: {&#39;colsample_bytree&#39;: 0.7, &#39;learning_rate&#39;: 0.05, &#39;max_depth&#39;: 6, &#39;n_estimators&#39;: 5}
+Lowest RMSE:  1.577448838744757
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./code"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jan Kirenz<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

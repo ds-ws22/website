@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Gradient Boosting in scikit-learn &#8212; Data Science</title>
+    <title>Gradient boosting classification &#8212; Data Science</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -310,7 +310,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://colab.research.google.com/github/orgs/ds-ws22/blob/main/code/37-gradientboosting.ipynb"
+        <a href="https://colab.research.google.com/github/orgs/ds-ws22/blob/main/code/36-gradientboosting-classification.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -370,7 +370,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/orgs/ds-ws22/repositories/issues/new?title=Issue%20on%20page%20%2Fcode/37-gradientboosting.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/orgs/ds-ws22/repositories/issues/new?title=Issue%20on%20page%20%2Fcode/36-gradientboosting-classification.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -398,7 +398,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/code/37-gradientboosting.ipynb"
+        <a href="../_sources/code/36-gradientboosting-classification.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -458,13 +458,45 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setup">
-   Setup
+  <a class="reference internal nav-link" href="#data">
+   Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data">
-   Data
+  <a class="reference internal nav-link" href="#import-data">
+   Import data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inspect-data">
+   Inspect data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-preparation">
+   Data preparation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#categorical-data">
+     Categorical data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#label-and-features">
+     Label and features
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-test-split">
+     Train test split
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-exploration">
+   Data exploration
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -473,25 +505,23 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plot-training-test-deviance">
-     Plot training test deviance
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#feature-importance">
-   Feature importance
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mean-decrease-in-impurity-mdi">
-     Mean decrease in impurity (MDI)
+    <a class="reference internal nav-link" href="#confusion-matrix">
+     Confusion matrix
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#permutation-feature-importance">
-     Permutation feature importance
+    <a class="reference internal nav-link" href="#classification-report">
+     Classification report
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#change-threshold">
+     Change threshold
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Classification report
     </a>
    </li>
   </ul>
@@ -505,7 +535,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Gradient Boosting in scikit-learn</h1>
+                <h1>Gradient boosting classification</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -516,13 +546,45 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setup">
-   Setup
+  <a class="reference internal nav-link" href="#data">
+   Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data">
-   Data
+  <a class="reference internal nav-link" href="#import-data">
+   Import data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inspect-data">
+   Inspect data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-preparation">
+   Data preparation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#categorical-data">
+     Categorical data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#label-and-features">
+     Label and features
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-test-split">
+     Train test split
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-exploration">
+   Data exploration
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -531,25 +593,23 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plot-training-test-deviance">
-     Plot training test deviance
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#feature-importance">
-   Feature importance
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mean-decrease-in-impurity-mdi">
-     Mean decrease in impurity (MDI)
+    <a class="reference internal nav-link" href="#confusion-matrix">
+     Confusion matrix
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#permutation-feature-importance">
-     Permutation feature importance
+    <a class="reference internal nav-link" href="#classification-report">
+     Classification report
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#change-threshold">
+     Change threshold
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Classification report
     </a>
    </li>
   </ul>
@@ -564,287 +624,470 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="gradient-boosting-in-scikit-learn">
-<h1>Gradient Boosting in scikit-learn<a class="headerlink" href="#gradient-boosting-in-scikit-learn" title="Permalink to this headline">#</a></h1>
-<p>We illustrate the following regression method on a data set called “Hitters”, which includes 20 variables and 322 observations of major league baseball players. The goal is to predict a baseball player’s salary on the basis of various features associated with performance in the previous year. We don’t cover the topic of exploratory data analysis in this notebook.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="gradient-boosting-classification">
+<h1>Gradient boosting classification<a class="headerlink" href="#gradient-boosting-classification" title="Permalink to this headline">#</a></h1>
+<p>We use a classification model to predict which customers will default on their credit card debt.</p>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
+<p>The credit data is a simulated data set containing information on ten thousand customers (taken from <span id="id1"></span>). The aim here is to use a classification model to predict which customers will default on their credit card debt (i.e., failure to repay a debt):</p>
 <ul class="simple">
-<li><p>Visit <a class="reference external" href="https://cran.r-project.org/web/packages/ISLR/ISLR.pdf">this documentation</a> if you want to learn more about the data</p></li>
+<li><p>default: A categorical variable with levels No and Yes indicating whether the customer defaulted on their debt</p></li>
+<li><p>student: A categorical variable with levels No and Yes indicating whether the customer is a student</p></li>
+<li><p>balance: The average balance that the customer has remaining on their credit card after making their monthly payment</p></li>
+<li><p>income: Income of customer</p></li>
 </ul>
-<section id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="import-data">
+<h2>Import data<a class="headerlink" href="#import-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pyplot as plt
-import numpy as np
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
 
-from sklearn.ensemble import GradientBoostingRegressor
-from sklearn.metrics import mean_squared_error
-from sklearn.inspection import permutation_importance
+df = pd.read_csv(&#39;https://raw.githubusercontent.com/kirenz/classification/main/_static/data/Default.csv&#39;)
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="data">
-<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
+<section id="inspect-data">
+<h2>Inspect data<a class="headerlink" href="#inspect-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-# Import
-df = pd.read_csv(&quot;https://raw.githubusercontent.com/kirenz/datasets/master/Hitters.csv&quot;)
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-# drop missing cases
-df = df.dropna()
-
-# Create dummies
-dummies = pd.get_dummies(df[[&#39;League&#39;, &#39;Division&#39;,&#39;NewLeague&#39;]])
-
-# Create our label y:
-y = df[[&#39;Salary&#39;]]
-X_numerical = df.drop([&#39;Salary&#39;, &#39;League&#39;, &#39;Division&#39;, &#39;NewLeague&#39;], axis=1).astype(&#39;float64&#39;)
-
-# Make a list of all numerical features
-list_numerical = X_numerical.columns
-
-# Create all features
-X = pd.concat([X_numerical, dummies[[&#39;League_N&#39;, &#39;Division_W&#39;, &#39;NewLeague_N&#39;]]], axis=1)
-feature_names = X.columns
-
-# Split data
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=10)
-
-# Data standardization
-scaler = StandardScaler().fit(X_train[list_numerical]) 
-
-X_train[list_numerical] = scaler.transform(X_train[list_numerical])
-X_test[list_numerical] = scaler.transform(X_test[list_numerical])
-
-# Make pandas dataframes
-df_train = y_train.join(X_train)
-df_test = y_test.join(X_test)
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>default</th>
+      <th>student</th>
+      <th>balance</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>No</td>
+      <td>No</td>
+      <td>729.526495</td>
+      <td>44361.625074</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>No</td>
+      <td>Yes</td>
+      <td>817.180407</td>
+      <td>12106.134700</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>No</td>
+      <td>No</td>
+      <td>1073.549164</td>
+      <td>31767.138947</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>No</td>
+      <td>No</td>
+      <td>529.250605</td>
+      <td>35704.493935</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>No</td>
+      <td>No</td>
+      <td>785.655883</td>
+      <td>38463.495879</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>9995</th>
+      <td>No</td>
+      <td>No</td>
+      <td>711.555020</td>
+      <td>52992.378914</td>
+    </tr>
+    <tr>
+      <th>9996</th>
+      <td>No</td>
+      <td>No</td>
+      <td>757.962918</td>
+      <td>19660.721768</td>
+    </tr>
+    <tr>
+      <th>9997</th>
+      <td>No</td>
+      <td>No</td>
+      <td>845.411989</td>
+      <td>58636.156984</td>
+    </tr>
+    <tr>
+      <th>9998</th>
+      <td>No</td>
+      <td>No</td>
+      <td>1569.009053</td>
+      <td>36669.112365</td>
+    </tr>
+    <tr>
+      <th>9999</th>
+      <td>No</td>
+      <td>Yes</td>
+      <td>200.922183</td>
+      <td>16862.952321</td>
+    </tr>
+  </tbody>
+</table>
+<p>10000 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.info()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 10000 entries, 0 to 9999
+Data columns (total 4 columns):
+ #   Column   Non-Null Count  Dtype  
+---  ------   --------------  -----  
+ 0   default  10000 non-null  object 
+ 1   student  10000 non-null  object 
+ 2   balance  10000 non-null  float64
+ 3   income   10000 non-null  float64
+dtypes: float64(2), object(2)
+memory usage: 312.6+ KB
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Make contiguous flattened arrays (for our scikit-learn GradientBoostingRegressor):</p></li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>y_train = np.ravel(y_train)
-y_test = np.ravel(y_test)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># check for missing values
+print(df.isnull().sum())
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>default    0
+student    0
+balance    0
+income     0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-preparation">
+<h2>Data preparation<a class="headerlink" href="#data-preparation" title="Permalink to this headline">#</a></h2>
+<section id="categorical-data">
+<h3>Categorical data<a class="headerlink" href="#categorical-data" title="Permalink to this headline">#</a></h3>
+<p>First, we convert categorical data into indicator variables:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dummies = pd.get_dummies(df[[&#39;default&#39;, &#39;student&#39;]], drop_first=True, dtype=float)
+dummies.head(3)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>default_Yes</th>
+      <th>student_Yes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># combine data and drop original categorical variables
+df = pd.concat([df, dummies], axis=1).drop(columns = [&#39;default&#39;, &#39;student&#39;])
+df.head(3)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>balance</th>
+      <th>income</th>
+      <th>default_Yes</th>
+      <th>student_Yes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>729.526495</td>
+      <td>44361.625074</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>817.180407</td>
+      <td>12106.134700</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1073.549164</td>
+      <td>31767.138947</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="label-and-features">
+<h3>Label and features<a class="headerlink" href="#label-and-features" title="Permalink to this headline">#</a></h3>
+<p>Next, we create our y label and features:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>y = df[&#39;default_Yes&#39;]
+X = df.drop(columns = &#39;default_Yes&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="train-test-split">
+<h3>Train test split<a class="headerlink" href="#train-test-split" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state = 1)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="data-exploration">
+<h2>Data exploration<a class="headerlink" href="#data-exploration" title="Permalink to this headline">#</a></h2>
+<p>Create data for exploratory data analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>train_dataset = pd.DataFrame(X_train.copy())
+train_dataset[&#39;default_Yes&#39;] = pd.DataFrame(y_train)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import seaborn as sns
+
+sns.pairplot(train_dataset, hue=&#39;default_Yes&#39;);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/36-gradientboosting-classification_21_0.png" src="../_images/36-gradientboosting-classification_21_0.png" />
 </div>
 </div>
 </section>
 <section id="model">
 <h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>Define hyperparameters:</p></li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>params = {
-    &quot;n_estimators&quot;: 500,
-    &quot;max_depth&quot;: 4,
-    &quot;min_samples_split&quot;: 5,
-    &quot;learning_rate&quot;: 0.01,
-    &quot;loss&quot;: &quot;squared_error&quot;,
-}
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.ensemble import GradientBoostingClassifier
+
+clf = GradientBoostingClassifier(n_estimators=100, 
+                                learning_rate=1.0,
+                                max_depth=1, 
+                                random_state=0).fit(X_train, y_train)
+
+                                
+y_pred = clf.fit(X_train, y_train).predict(X_test)
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Build and fit model</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For big datasets (n_samples &gt;= 10 000) the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingRegressor.html#sklearn.ensemble.HistGradientBoostingRegressor">Histogram-based Gradient Boosting Regression Tree</a> is much faster than <code class="docutils literal notranslate"><span class="pre">GradientBoostingRegressor</span></code></p>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>reg = GradientBoostingRegressor(**params)
-
-reg.fit(X_train, y_train)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Return the mean accuracy on the given test data and labels:
+clf.score(X_test, y_test)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GradientBoostingRegressor(learning_rate=0.01, max_depth=4, min_samples_split=5,
-                          n_estimators=500)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">GradientBoostingRegressor</label><div class="sk-toggleable__content"><pre>GradientBoostingRegressor(learning_rate=0.01, max_depth=4, min_samples_split=5,
-                          n_estimators=500)</pre></div></div></div></div></div></div></div>
-</div>
-<ul class="simple">
-<li><p>Make predictions</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>y_pred = reg.predict(X_test)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9696666666666667
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Evaluate model with RMSE</p></li>
-</ul>
+<section id="confusion-matrix">
+<h3>Confusion matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mean_squared_error(y_test, y_pred, squared=False)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>302.26107555456184
-</pre></div>
-</div>
-</div>
-</div>
-<section id="plot-training-test-deviance">
-<h3>Plot training test deviance<a class="headerlink" href="#plot-training-test-deviance" title="Permalink to this headline">#</a></h3>
-<p>Source: <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_gradient_boosting_regression.html#plot-training-deviance">scikit learn</a>, provided by Peter Prettenhofer, Maria Telenczuk and Katrina Ni:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>test_score = np.zeros((params[&quot;n_estimators&quot;],), dtype=np.float64)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+import matplotlib.pyplot as plt
 
-for i, y_pred in enumerate(reg.staged_predict(X_test)):
-    test_score[i] = reg.loss_(y_test, y_pred)
+cm = confusion_matrix(y_test, y_pred)
 
-fig = plt.figure(figsize=(6, 6))
-plt.subplot(1, 1, 1)
-plt.title(&quot;Deviance&quot;)
-plt.plot(
-    np.arange(params[&quot;n_estimators&quot;]) + 1,
-    reg.train_score_,
-    &quot;b-&quot;,
-    label=&quot;Training Set Deviance&quot;,
-)
-plt.plot(
-    np.arange(params[&quot;n_estimators&quot;]) + 1, test_score, &quot;r-&quot;, label=&quot;Test Set Deviance&quot;
-)
-plt.legend(loc=&quot;upper right&quot;)
-plt.xlabel(&quot;Boosting Iterations&quot;)
-plt.ylabel(&quot;Deviance&quot;)
+disp = ConfusionMatrixDisplay(confusion_matrix=cm,
+                              display_labels=clf.classes_)
+disp.plot()
 plt.show()
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/jankirenz/opt/anaconda3/envs/ds/lib/python3.9/site-packages/sklearn/utils/deprecation.py:103: FutureWarning: Attribute `loss_` was deprecated in version 1.1 and will be removed in 1.3.
-  warnings.warn(msg, category=FutureWarning)
-</pre></div>
-</div>
-<img alt="../_images/37-gradientboosting_18_1.png" src="../_images/37-gradientboosting_18_1.png" />
+<img alt="../_images/36-gradientboosting-classification_26_0.png" src="../_images/36-gradientboosting-classification_26_0.png" />
 </div>
 </div>
 </section>
-</section>
-<section id="feature-importance">
-<h2>Feature importance<a class="headerlink" href="#feature-importance" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>Next, we take a look at the tree based feature importance and the permutation importance.</p></li>
-</ul>
-<section id="mean-decrease-in-impurity-mdi">
-<h3>Mean decrease in impurity (MDI)<a class="headerlink" href="#mean-decrease-in-impurity-mdi" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>Mean decrease in impurity (MDI) is a measure of feature importance for decision tree models.</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Visit <a class="reference external" href="https://kirenz.github.io/feature-engineering/docs/mdi.html">this notebook</a> to learn more about MDI</p>
-</div>
-<ul class="simple">
-<li><p>Feature importances are provided by the fitted attribute <code class="docutils literal notranslate"><span class="pre">feature_importances_</span></code></p></li>
-</ul>
+<section id="classification-report">
+<h3>Classification report<a class="headerlink" href="#classification-report" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># obtain feature importance
-feature_importance = reg.feature_importances_
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.metrics import classification_report
 
-# sort features according to importance
-sorted_idx = np.argsort(feature_importance)
-pos = np.arange(sorted_idx.shape[0])
-
-# plot feature importances
-plt.barh(pos, feature_importance[sorted_idx], align=&quot;center&quot;)
-
-plt.yticks(pos, np.array(feature_names)[sorted_idx])
-plt.title(&quot;Feature Importance (MDI)&quot;)
-plt.xlabel(&quot;Mean decrease in impurity&quot;);
+print(classification_report(y_test, y_pred, target_names=[&#39;No&#39;, &#39;Yes&#39;], zero_division=0))
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/37-gradientboosting_21_0.png" src="../_images/37-gradientboosting_21_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+          No       0.97      1.00      0.98      2909
+         Yes       0.00      0.00      0.00        91
+
+    accuracy                           0.97      3000
+   macro avg       0.48      0.50      0.49      3000
+weighted avg       0.94      0.97      0.95      3000
+</pre></div>
+</div>
 </div>
 </div>
 </section>
-<section id="permutation-feature-importance">
-<h3>Permutation feature importance<a class="headerlink" href="#permutation-feature-importance" title="Permalink to this headline">#</a></h3>
-<p>The permutation feature importance is defined to be the decrease in a model score when a single feature value is randomly shuffled.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Visit <a class="reference external" href="https://kirenz.github.io/feature-engineering/docs/permutation-feature-importance.html">this notebook</a> to learn more about permutation feature importance.</p>
-</div>
+<section id="change-threshold">
+<h3>Change threshold<a class="headerlink" href="#change-threshold" title="Permalink to this headline">#</a></h3>
+<p>Use specific threshold</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>result = permutation_importance(
-    reg, X_test, y_test, n_repeats=10, random_state=42, n_jobs=2
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pred_proba = clf.predict_proba(X_test)
 
-tree_importances = pd.Series(result.importances_mean, index=feature_names)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># sort features according to importance
-sorted_idx = np.argsort(tree_importances)
-pos = np.arange(sorted_idx.shape[0])
+df_ = pd.DataFrame({&#39;y_test&#39;: y_test, &#39;y_pred&#39;: pred_proba[:,1] &gt; .25})
+cm = confusion_matrix(y_test, df_[&#39;y_pred&#39;])
 
-# plot feature importances
-plt.barh(pos, tree_importances[sorted_idx], align=&quot;center&quot;)
-
-plt.yticks(pos, np.array(feature_names)[sorted_idx])
-plt.title(&quot;Feature Importance (MDI)&quot;)
-plt.xlabel(&quot;Mean decrease in impurity&quot;);
+disp = ConfusionMatrixDisplay(confusion_matrix=cm,
+                              display_labels=clf.classes_)
+disp.plot()
+plt.show()
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/37-gradientboosting_24_0.png" src="../_images/37-gradientboosting_24_0.png" />
+<img alt="../_images/36-gradientboosting-classification_31_0.png" src="../_images/36-gradientboosting-classification_31_0.png" />
 </div>
 </div>
-<ul class="simple">
-<li><p>Same data plotted as boxplot:</p></li>
-</ul>
+</section>
+<section id="id2">
+<h3>Classification report<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.boxplot(
-    result.importances[sorted_idx].T,
-    vert=False,
-    labels=np.array(feature_names)[sorted_idx],
-)
-
-plt.title(&quot;Permutation Importance (test set)&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+print(classification_report(y_test, df_[&#39;y_pred&#39;], zero_division=0))
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Permutation Importance (test set)&#39;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+         0.0       0.97      1.00      0.98      2909
+         1.0       0.00      0.00      0.00        91
+
+    accuracy                           0.97      3000
+   macro avg       0.48      0.50      0.49      3000
+weighted avg       0.94      0.97      0.95      3000
 </pre></div>
 </div>
-<img alt="../_images/37-gradientboosting_26_1.png" src="../_images/37-gradientboosting_26_1.png" />
 </div>
 </div>
-<ul class="simple">
-<li><p>We observe that the same features are detected as most important using both methods (e.g., <code class="docutils literal notranslate"><span class="pre">CAtBat</span></code>, <code class="docutils literal notranslate"><span class="pre">CRBI</span></code>, <code class="docutils literal notranslate"><span class="pre">CHits</span></code>, <code class="docutils literal notranslate"><span class="pre">Walks</span></code>, <code class="docutils literal notranslate"><span class="pre">Years</span></code>). Although the relative importances vary (especially for feature <code class="docutils literal notranslate"><span class="pre">Years</span></code>).</p></li>
-</ul>
 </section>
 </section>
 </section>

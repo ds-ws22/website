@@ -6,16 +6,17 @@
 (prepare)=
 ## Prepare
 
-
+None
 
 ---
 
 (participate)=
 ## Participate
 
-- [34. Boosted trees (XGBoost)](../code/34-gradientboosting-xgboost.ipynb)
-
-- [35. Boosted trees in Scikit-learn](../code/35-gradientboosting.ipynb)
+- [34. Boosted tree (xgboost)](../code/34-xgboost.ipynb)
+- [35. Boosted tree regression (xgboost)](../code/35-xgboost-regression.ipynb)
+- [36. Boosted tree classification (scikit-learn)](../code/36-gradientboosting-classification.ipynb)
+- [37. Boosted tree regression (scikit-learn)](../code/37-gradientboosting.ipynb)
 
 
 ---
