@@ -38,7 +38,7 @@ We install some modules in a new Anaconda environment. We call this new environm
 
 
 ```bash
-conda create -n tf python=3.9 pandas jupyter tensorflow
+conda create -n tf python=3.10 pandas jupyter tensorflow altair --y
 ```
 
 Activate the new environment:
