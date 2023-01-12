@@ -38,13 +38,32 @@ We install some modules in a new Anaconda environment. We call this new environm
 
 
 ```bash
-conda create -n tf python=3.9 pandas jupyter tensorflow
+conda create -n tf python=3.10 pandas jupyter tensorflow altair pydot --y
 ```
 
 Activate the new environment:
 
 ```bash
 conda activate tf
+```
+
+### Install Graphviz
+
+Graphviz is open source graph visualization software. We use it to visualize Deep Learning Architectures.
+
+#### Windows
+
+- Install [Graphiz](https://graphviz.gitlab.io/download/#windows)
+
+#### Mac
+
+- Install [MacPorts](https://www.macports.org/install.php). The MacPorts Project is an open-source community initiative to design an easy-to-use system for compiling, installing, and upgrading either command-line, X11 or Aqua based open-source software on the Mac operating system. 
+
+
+- Install Graphviz using MacPorts. In your temrinal: 
+
+```bash
+sudo port install graphviz
 ```
 
 ---

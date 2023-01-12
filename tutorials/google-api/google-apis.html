@@ -551,18 +551,18 @@ title="Print to PDF"
 <section id="set-up-anaconda-environment">
 <h3>Set up Anaconda environment<a class="headerlink" href="#set-up-anaconda-environment" title="Permalink to this headline">#</a></h3>
 <p>First we need to setup a new Anaconda environment where we will use <code class="docutils literal notranslate"><span class="pre">pip</span></code> to install packages (not conda):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n drive <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9 pip 
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>drive<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9<span class="w"> </span>pip<span class="w"> </span>
 </pre></div>
 </div>
 </section>
 <section id="install-the-google-client-library">
 <h3>Install the Google client library<a class="headerlink" href="#install-the-google-client-library" title="Permalink to this headline">#</a></h3>
 <p>Activate your environment:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda activate drive
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>drive
 </pre></div>
 </div>
 <p>Install some libraries for Python:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib googleapiclient pandas
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>google-api-python-client<span class="w"> </span>google-auth-httplib2<span class="w"> </span>google-auth-oauthlib<span class="w"> </span>googleapiclient<span class="w"> </span>pandas
 </pre></div>
 </div>
 </section>
