@@ -24,9 +24,10 @@ For a more detailed semester overview, take a look at the [course-schedule](../d
 |	9	|	05.12.	|	ML Case study CA housing	|	 - 	|	[📁](../weeks/week9.md)	|	
 |	10	|	12.12.	|	Classification	|	[📑](https://drive.google.com/file/d/10OqatAw0GhYYQcRs3nkg5AON0v19d3L7/view?usp=sharing)	|	[📁](../weeks/week10.md)	|	
 |	11	|	19.12.	|	Decision tree and random forest	|	[📑](https://drive.google.com/file/d/10ugq6FglzLn85wp3keqJuA4SEyXKgk4T/view?usp=sharing)	|	[📁](../weeks/week11.md)	|	
-|	12	|	09.01.	|	Boosted Tree	|		|	[📁](../weeks/week12.md)	|	
-|	13	|	16.01.	|	Deep learning	|		|		|	
-|	14	|	23.01.	|	Deep learning	|		|		|			
+|	12	|	09.01.	|	Boosted Tree	|	 - 	|	[📁](../weeks/week12.md)	|	
+|	13	|	16.01.	|	Deep learning	|	[📑](https://drive.google.com/file/d/112xZgvURqOz-nQ9_W_YxQ6JA8LVjWUNH/view?usp=sharing)	|	[📁](../weeks/week13.md)	|	
+|	14	|	23.01.	|	Deep learning	|		|		|	
+
 
 ---
 

@@ -8,7 +8,6 @@ Note that this schedule will be updated as the semester progresses
 
 For a semester overview, take a look at the [course-overview](../docs/course-overview.md). 
 
-
 |	Week	|	Nr.	|	Date	|	Topic	|	Week overview	|	Slides	|	AE	|	HW	|	Exam	|
 |	---	|	---	|	---	|	---	|	---	|	---	|	---	|	---	|	---	|
 |	1	|	1	|	10.10.	|	Data Science	|	[📚](../weeks/week1.md)	|	[📑](https://drive.google.com/file/d/1-MhFzAXL9l0z1381-DaqW63GFWsw_epQ/view?usp=sharing)	|		|		|		|
@@ -26,7 +25,7 @@ For a semester overview, take a look at the [course-overview](../docs/course-ove
 |	6	|	13	|	14.11.	|	Sales and ads (models 1)	|	[📚](../weeks/week6.md)	|	[📑](https://drive.google.com/file/d/1-ZfUfZ671sAIsGPhKhvPfG9_mpgOXuro/view?usp=sharing)	|	[💻](../weeks/week6.md)	|		|		|
 |	6	|	14	|	14.11.	|	Mean squared error 1 (models 2)	|		|	[📑](https://drive.google.com/file/d/10ugq6FglzLn85wp3keqJuA4SEyXKgk4T/view?usp=sharing)	|	[💻](../weeks/week6.md)	|		|		|
 |	6	|	15	|	14.11.	|	Mean squared error 2 (models 3)	|		|	 - 	|	[💻](../weeks/week6.md)	|		|		|
-|	6	|	16	|	14.11.	|	Mean squared error 3 (models 4)	|		|		|	[💻](../weeks/week6.md)	|		|		|
+|	6	|	16	|	14.11.	|	Mean squared error 3 (models 4)	|		|	[📑](https://drive.google.com/file/d/112xZgvURqOz-nQ9_W_YxQ6JA8LVjWUNH/view?usp=sharing)	|	[💻](../weeks/week6.md)	|		|		|
 |	6	|	17	|	14.11.	|	Fitting a line and residuals	|		|		|		|		|		|
 |	7	|	18	|	21.11.	|	Regression case happier	|	[📚](../weeks/week7.md)	|	[📑](https://drive.google.com/file/d/1-cGm0I8N0sVjoLRFJrz-4t15PlR_Qy_4/view?usp=sharing)	|		|		|		|
 |	7	|	19	|	21.11.	|	Data splitting	|		|		|		|		|		|
@@ -48,3 +47,6 @@ For a semester overview, take a look at the [course-overview](../docs/course-ove
 |	12	|	35	|	09.01.	|	Boosted tree regression (xgboost)	|		|		|		|		|		|
 |	12	|	36	|	09.01.	|	Boosted tree classification (scikit-learn)	|		|	 - 	|		|	[🖥 HW2](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=270904)	|		|
 |	13	|	37	|	16.01.	|	Boosted tree regression (scikit-learn)	|		|	 - 	|		|	[🖥 HW2](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=270904)	|		|
+|	13	|	38	|	16.01.	|	Deep learning	|	[📚](../weeks/week13.md)	|	[📑](https://drive.google.com/file/d/112xZgvURqOz-nQ9_W_YxQ6JA8LVjWUNH/view?usp=sharing)	|		|	[🖥 HW2](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=270904)	|		|
+|	13	|	39	|	16.01.	|	Sequential model	|		|	 - 	|		|	[🖥 HW2](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=270904)	|		|
+|	14	|	40	|	23.01.	|	Functional API	|		|	 - 	|		|	[🖥 HW2](https://e-learning.hdm-stuttgart.de/moodle/mod/page/view.php?id=270904)	|		|
