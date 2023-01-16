@@ -121,12 +121,23 @@ More details about the exams will be given during the semester.
 
 The final course grade will be calculated as follows:
 
+<!--
+
 | Category              | Percentage      |
 |-----------------------|-----------------|
 | Application exercises | 20%             |
 | Homework              | 30%             |
 | Exam 01               | 30%             |
 | Exam 02               | 20%             |
+
+-->
+
+| Category              | Percentage      |
+|-----------------------|-----------------|
+| Application exercises | 20%             |
+| Homework              | 35%             |
+| Exam 01               | 40%             |
+| Exam 02               |  5%             |
 
 The final grade will be determined based on the following thresholds:
 

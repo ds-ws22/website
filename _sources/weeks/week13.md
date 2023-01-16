@@ -1,4 +1,4 @@
-# Week 12
+# Week 13
 
 
 ---
@@ -23,26 +23,18 @@ What is a neural network? - Learn what are the neurons, why are there layers, an
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/aircAruvnKk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
+- [Slides 📑](https://drive.google.com/file/d/112xZgvURqOz-nQ9_W_YxQ6JA8LVjWUNH/view?usp=sharing)
 
-- [Slides 📑](https://drive.google.com/file/d/10ugq6FglzLn85wp3keqJuA4SEyXKgk4T/view?usp=sharing)
 
-- [38. Deep learning](../code/38-tf-example.ipynb)
 
-<!--
-- [39. Sequential model](../code/39-keras-sequential-c.ipynb)
-- [40. Functional API](../code/40-keras-functional-c.ipynb)
--->
+- [38. Deep learning code](../code/38-tf-example.ipynb)
 
 ---
 
 (practice)=
 ## Practice
 
-
-- [39. Sequential model](../code/39-keras-sequential-c.ipynb)
-
-
-- [40. Functional API](../code/40-keras-functional-c.ipynb)
+- None
 
 
 ---
