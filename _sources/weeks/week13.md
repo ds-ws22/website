@@ -26,7 +26,6 @@ What is a neural network? - Learn what are the neurons, why are there layers, an
 - [Slides 📑](https://drive.google.com/file/d/112xZgvURqOz-nQ9_W_YxQ6JA8LVjWUNH/view?usp=sharing)
 
 
-
 - [38. Deep learning code](../code/38-tf-example.ipynb)
 
 ---
@@ -34,7 +33,7 @@ What is a neural network? - Learn what are the neurons, why are there layers, an
 (practice)=
 ## Practice
 
-- None
+None
 
 
 ---
