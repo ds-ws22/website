@@ -19,8 +19,6 @@ None
 - [Deep Learning Models @ OpenAI](https://github.com/om2-ws22/website/blob/main/slides/open-ai.pdf)
 
 
-Optional:
-
 - [39. Deep Learning model example fashion MNIST](../code/39-fashion-mnist.ipynb)
 
 
