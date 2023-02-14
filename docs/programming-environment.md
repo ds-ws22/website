@@ -17,6 +17,13 @@ We install some modules in a new Anaconda environment. We call this new environm
 conda create -n ds python=3.9 pandas openpyxl jupyter scikit-learn altair vega_datasets matplotlib seaborn requests tweepy beautifulsoup4 streamlit sqlalchemy psycopg2 xgboost
 ```
 
+<!--
+```bash
+conda create -n dsws22 python=3.9 pandas openpyxl ipython scikit-learn altair matplotlib seaborn requests tweepy beautifulsoup4 sqlalchemy psycopg2
+```
+-->
+
+
 Activate the new environment:
 
 ```bash
