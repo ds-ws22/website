@@ -554,6 +554,11 @@ title="Print to PDF"
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>ds<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9<span class="w"> </span>pandas<span class="w"> </span>openpyxl<span class="w"> </span>jupyter<span class="w"> </span>scikit-learn<span class="w"> </span>altair<span class="w"> </span>vega_datasets<span class="w"> </span>matplotlib<span class="w"> </span>seaborn<span class="w"> </span>requests<span class="w"> </span>tweepy<span class="w"> </span>beautifulsoup4<span class="w"> </span>streamlit<span class="w"> </span>sqlalchemy<span class="w"> </span>psycopg2<span class="w"> </span>xgboost
 </pre></div>
 </div>
+<!--
+```bash
+conda create -n dsws22 python=3.9 pandas openpyxl ipython scikit-learn altair matplotlib seaborn requests tweepy beautifulsoup4 sqlalchemy psycopg2
+```
+-->
 <p>Activate the new environment:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>ds
 </pre></div>
@@ -633,7 +638,7 @@ title="Print to PDF"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./docs"
         },
         predefinedOutput: true
